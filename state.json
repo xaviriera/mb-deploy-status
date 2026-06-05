@@ -1,11 +1,11 @@
 {
-  "updated": "2026-06-05 13:20",
-  "focus": "Acceso remoto (pre-PASO 1)",
-  "focusNote": "Ya dentro del MB por Google Remote Desktop. Tailscale instalado + logueado. Siguiente: activar RDP + arrancar PASO 1.",
+  "updated": "2026-06-05 13:35",
+  "focus": "PASO 1 · Instalar herramientas",
+  "focusNote": "Dentro del MB por Google Remote Desktop. Empezando por instalar Claude Code (para que Claude viva en el MB y ejecute el resto). Tailscale ya está.",
   "states": {
     "f0": "done",
     "s0": "pend",
-    "s1": "pend",
+    "s1": "prog",
     "s2": "pend",
     "s3": "pend",
     "s4": "pend",
@@ -18,7 +18,7 @@
     "s11": "pend",
     "s12": "pend",
     "s13": "pend",
-    "s14": "prog",
+    "s14": "pend",
     "s15": "pend"
   }
 }
