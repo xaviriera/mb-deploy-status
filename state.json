@@ -1,7 +1,15 @@
 {
-  "updated": "2026-06-05 14:00",
-  "focus": "Claude vivo en el MB → preparar relevo",
-  "focusNote": "Claude Code 2.1.165 (Opus 4.8, Max) corriendo en el MB y logueado. Siguiente: instalar git + gh, clonar el wiki, y darle el prompt de arranque para que ejecute el resto solo.",
+  "updated": "2026-06-05 14:15",
+  "focus": "PASO 1 · instalar git (última herramienta a mano)",
+  "focusNote": "Claude vivo en el MB. Falta git para clonar el wiki y darle el relevo.",
+  "done_today": [
+    "Acceso remoto al MB resuelto (Google Remote Desktop)",
+    "Tailscale instalado y logueado en el MB",
+    "Claude Code 2.1.165 instalado (Opus 4.8)",
+    "Login con cuenta Max hecho",
+    "Windows Terminal instalado (se ve bien)",
+    "Panel de seguimiento en vivo (esta página)"
+  ],
   "states": {
     "f0": "done",
     "s0": "pend",

@@ -16,11 +16,15 @@
   @keyframes p{0%,100%{opacity:.3}50%{opacity:1}}
   .gbar-wrap{margin:14px 0 6px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
   .gbar-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-  .gbar-top b{font-size:1.05rem;color:var(--acc)}
-  .gbar-top span{color:var(--mut);font-size:.8rem}
-  .gbar{height:10px;background:#16211c;border-radius:6px;overflow:hidden}
-  .gbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accd),var(--acc));border-radius:6px;transition:width .5s}
+  .gbar-top b{font-size:1.15rem;color:var(--acc)}
+  .gbar-top span{color:var(--mut);font-size:.78rem}
+  .gbar{height:12px;background:#16211c;border-radius:6px;overflow:hidden;position:relative}
+  .gbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accd),var(--acc));border-radius:6px;transition:width .6s}
   .leg{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:.72rem;color:var(--mut)}
+  .today{background:#0d1a12;border:1px solid #1f3b2c;border-radius:10px;padding:12px 14px;margin:12px 0}
+  .today h3{font-size:.82rem;color:var(--done);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+  .today li{list-style:none;font-size:.85rem;color:#bfe9d6;padding:2px 0 2px 22px;position:relative}
+  .today li:before{content:"✓";position:absolute;left:0;color:var(--done);font-weight:800}
   .now{background:var(--accd);color:#eafff5;border-radius:10px;padding:10px 14px;margin:12px 0 4px;font-size:.9rem;font-weight:600}
   .now small{display:block;font-weight:400;color:#bfe9d6;margin-top:2px}
   h2.fase{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:22px 0 8px;border-bottom:1px solid var(--line);padding-bottom:6px}
@@ -38,6 +42,7 @@
   .step.done .ttl{color:#9fc4b4}
   .chk{color:var(--mut);font-size:.78rem;margin-top:3px}
   .badge{font-size:.62rem;padding:2px 7px;border-radius:20px;font-weight:700;white-space:nowrap}
+  .b-prog{background:#352d12;color:var(--prog)}
   .b-cabo{background:#2a1410;color:#e0653d;border:1px solid #4a2a20}
   .who{font-size:.62rem;padding:1px 6px;border-radius:5px;background:#15201c;color:var(--mut)}
   .who.x{color:var(--xavi);background:#11202c}
@@ -51,12 +56,12 @@
 <body>
 <header>
   <h1>🧠 Main Brain · Despliegue</h1>
-  <div class="sub">Sitges · MB (Win 11 Pro) + Linux always-on · Xavi viaja</div>
+  <div class="sub">Sitges · MB (Win 10) + Linux always-on · Xavi viaja</div>
   <div class="ro"><span class="dot"></span>En vivo · lo marca Claude · <span id="upd"></span></div>
 </header>
 
 <div class="gbar-wrap">
-  <div class="gbar-top"><b id="pct">0%</b><span id="frac">0 / 15 pasos</span></div>
+  <div class="gbar-top"><b id="pct">0%</b><span id="frac">—</span></div>
   <div class="gbar"><i id="gbar" style="width:0%"></i></div>
   <div class="leg">
     <span style="color:var(--done)">● hecho</span>
@@ -66,6 +71,8 @@
     <span style="color:var(--xavi)">🙋 te necesito</span>
   </div>
 </div>
+
+<div class="today" id="today" style="display:none"><h3>✅ Logrado hoy</h3><ul id="todayList"></ul></div>
 
 <div class="now" id="now"></div>
 <div id="phases"></div>
@@ -82,26 +89,25 @@
 </div>
 
 <footer>
-  <div>Estado en <code>state.json</code> (lo edita Claude). GitHub Pages temporal → migra a Tailscale cuando el MB esté vivo.</div>
-  <div style="margin-top:6px">Acceso al MB: Tailscale+RDP (más seguro) · Chrome Remote Desktop (fallback).</div>
+  <div>Estado en <code>state.json</code> (lo edita Claude en vivo). El % cuenta hecho=1, en curso=½, sobre los 15 pasos del despliegue total.</div>
+  <div style="margin-top:6px">Acceso al MB: Google Remote Desktop (ahora) · Tailscale+RDP (al viajar).</div>
 </footer>
 
 <script>
-/* estructura fija — el ESTADO vive en state.json (Claude lo edita) */
 const STEPS=[
  {f:"F0 · Precondición",items:[
   {id:"f0",n:"",t:"Backup 3-2-1 (restic) + restore-test",who:"C",chk:"backup verificado + GitHub + colas procesadas",f0:true},
  ]},
  {f:"F1 · Arranque del MB — al cerrar el 10, el cerebro está VIVO",items:[
   {id:"s0",n:"0",t:"Credenciales / accesos a mano",who:"X",chk:"GitHub · login Max · API key · OPENAI/GROQ · CEDX_PASSPHRASE · Tailscale+Google"},
-  {id:"s1",n:"1",t:"Instalar herramientas",who:"CX",chk:"7 comandos --version · Claude ≥2.1.51 · Tailscale logueado"},
+  {id:"s1",n:"1",t:"Instalar herramientas",who:"CX",chk:"Claude Code ✅ · Terminal ✅ · Tailscale ✅ · git ✅ · falta: python·uv·node·WinFsp·rclone·NSSM"},
   {id:"s2",n:"2",t:"Clonar wiki público + privado + ~12 repos",who:"C",chk:"~\\mb\\repos\\xavi-wiki existe · wiki\\_private\\cedx\\ con contenido"},
   {id:"s3",n:"3",t:"Copiar a mano lo machine-local",who:"CX",chk:".env · cedx.md · CLAUDE.md global · memory/ · .mcp.json",cabo:"#2"},
   {id:"s4",n:"4",t:"install-agents.sh + install-hooks.sh",who:"C",chk:"agents/ con fiscus·lexia·canon·cedx · settings.json con hooks"},
   {id:"s5",n:"5",t:"Resolver paths R3 + IP Tailscale",who:"C",chk:"WIKI_PATH real · cero IP 100.91.100.32 · commiteado",cabo:"#3"},
   {id:"s6",n:"6",t:"Google Drive — rclone + NSSM",who:"CX",chk:"X:/Y:/Z:/W: listan · mounts sobreviven a reinicio",cabo:"#10"},
   {id:"s7",n:"7",t:"Seguridad CEDX — gate por contraseña",who:"CX",chk:"con pass entra · sin pass rehúsa · cero HECHOENSERIO",cabo:"#5"},
-  {id:"s8",n:"8",t:"Auth — login Max + API key a nivel servicio",who:"X",chk:"claude logueado Max · cron headless ve ANTHROPIC_API_KEY",cabo:"#6"},
+  {id:"s8",n:"8",t:"Auth — login Max + API key a nivel servicio",who:"X",chk:"login Max ✅ · falta: cron headless ve ANTHROPIC_API_KEY",cabo:"#6"},
   {id:"s9",n:"9",t:"Pegar el PROMPT DE ARRANQUE",who:"X",chk:"Claude del MB confirma 6 fuentes + propone bloque F1"},
   {id:"s10",n:"10",t:"Smoke-test — sistema vivo + agentes",who:"C",chk:"6 tests vivos · CEDX + Telegram E2E desde MB sin la Linux"},
  ]},
@@ -120,32 +126,40 @@ async function load(){
   let st={};
   try{const r=await fetch("state.json?t="+Date.now());st=await r.json();}catch(e){}
   const states=st.states||{};
-  const ph=document.getElementById("phases");ph.innerHTML="";let done=0;
+  // logrado hoy
+  const tl=document.getElementById("todayList"), tbox=document.getElementById("today");
+  if(st.done_today&&st.done_today.length){tbox.style.display="";tl.innerHTML=st.done_today.map(x=>`<li>${x}</li>`).join("");}
+  else tbox.style.display="none";
+  // pasos
+  const ph=document.getElementById("phases");ph.innerHTML="";
+  let done=0,prog=0;
   STEPS.forEach(g=>{
     const h=document.createElement("h2");h.className="fase";h.textContent=g.f;ph.appendChild(h);
     g.items.forEach(it=>{
       const s=states[it.id]||"pend";
-      if(s==="done"&&!it.f0)done++;
+      if(!it.f0){if(s==="done")done++;else if(s==="prog")prog++;}
       const d=document.createElement("div");d.className="step "+s;
       const [wc,wt]=WHO[it.who];
       d.innerHTML=`<div class="chkbox">${BADGE[s]}</div>
         ${it.n!==""?`<div class="num">${it.n}</div>`:""}
         <div class="body"><div class="ttl">${it.t}
+          ${s==="prog"?`<span class="badge b-prog">en curso</span>`:""}
           ${it.cabo?`<span class="badge b-cabo">cabo ${it.cabo} 🔴</span>`:""}
           <span class="${wc}">${wt}</span></div>
           <div class="chk">✔ ${it.chk}</div></div>`;
       ph.appendChild(d);
     });
   });
-  const pct=Math.round(done/15*100);
+  const score=done+prog*0.5;
+  const pct=Math.round(score/15*100);
   document.getElementById("pct").textContent=pct+"%";
-  document.getElementById("frac").textContent=done+" / 15 pasos";
+  document.getElementById("frac").textContent=done+" hechos · "+prog+" en curso · de 15";
   document.getElementById("gbar").style.width=pct+"%";
   document.getElementById("upd").textContent=st.updated?("act. "+st.updated):"";
   document.getElementById("now").innerHTML="📍 Ahora: <b>"+(st.focus||"—")+"</b><small>"+(st.focusNote||"")+"</small>";
 }
 load();
-setInterval(load,20000); /* refresca cada 20s sin recargar */
+setInterval(load,20000);
 </script>
 </body>
 </html>
