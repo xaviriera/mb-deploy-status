@@ -1,14 +1,14 @@
 {
-  "updated": "2026-06-05 14:45",
-  "focus": "Replicar entorno IDÉNTICO (usuario xavir)",
-  "focusNote": "Decisión firme: usuario xavir + ruta idéntica = cero adaptación, cero fisuras. Machine-local YA empaquetado en repo privado mb-machine-local (343 memoria + agentes + hooks + CLAUDE.md). El arranque bajo Main Brain se descarta. Falta: crear usuario xavir y desplegar el bundle.",
+  "updated": "2026-06-05 15:00 · EN PAUSA",
+  "focus": "⏸ Sesión en pausa — retomar creando usuario xavir",
+  "focusNote": "RETOMAR POR AQUÍ: (1) crear usuario Windows xavir [tu mano] → entrar una vez. Luego yo: (2) re-login Tailscale (NeedsLogin), (3) reinstalar las 6 herramientas machine-wide, (4) desplegar bundle mb-machine-local en ruta idéntica, (5) clonar repos, (6) tú reintroduces 3 secretos + smoke-test. Destino FIRME: xavir, ruta idéntica.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
-    "Tailscale + Windows Terminal + git instalados",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
-    "Plan releído entero: rumbo confirmado",
-    "Machine-local COMPLETO empaquetado: 343 memoria + agentes + comandos + hooks + CLAUDE.md → repo privado",
-    "Estrategia sin fisuras fijada: usuario xavir, ruta idéntica, copia bit a bit"
+    "Plan releído entero: rumbo confirmado → destino xavir, ruta idéntica",
+    "Machine-local COMPLETO empaquetado → repo privado mb-machine-local (343 memoria + agentes + hooks + CLAUDE.md, sin secretos)",
+    "6 herramientas instaladas (python/uv/node/WinFsp/rclone/NSSM) + 3 repos clonados + 6 fuentes leídas (preparación)",
+    "Estrategia sin fisuras fijada y reconciliada con el MB"
   ],
   "states": {
     "f0": "done",
