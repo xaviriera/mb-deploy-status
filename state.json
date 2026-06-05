@@ -1,20 +1,24 @@
 {
-  "updated": "2026-06-05 14:15",
-  "focus": "PASO 1 · instalar git (última herramienta a mano)",
-  "focusNote": "Claude vivo en el MB. Falta git para clonar el wiki y darle el relevo.",
+  "updated": "2026-06-05 20:24",
+  "focus": "PASO 1 · instalar python · uv · node · WinFsp · rclone · NSSM (winget)",
+  "focusNote": "Repos clonados y docs leídos. Termino las 6 herramientas que faltan; luego PASO 3 necesita a Xavi (copiar a mano los secretos machine-local).",
   "done_today": [
     "Acceso remoto al MB resuelto (Google Remote Desktop)",
     "Tailscale instalado y logueado en el MB",
     "Claude Code 2.1.165 instalado (Opus 4.8)",
     "Login con cuenta Max hecho",
     "Windows Terminal instalado (se ve bien)",
-    "Panel de seguimiento en vivo (esta página)"
+    "Panel de seguimiento en vivo (esta página)",
+    "git instalado + configurado (longpaths, identidad, credential-manager)",
+    "GitHub autorizado (OAuth cuenta xaviriera)",
+    "Repos clonados: wiki público (8158) + privado (cedx 475 items) + panel",
+    "Las 6 fuentes leídas y entendidas (plan v3.2, runbook, checklist, deploy-state, memoria)"
   ],
   "states": {
     "f0": "done",
     "s0": "pend",
     "s1": "prog",
-    "s2": "pend",
+    "s2": "done",
     "s3": "pend",
     "s4": "pend",
     "s5": "pend",
