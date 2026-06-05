@@ -1,0 +1,24 @@
+{
+  "updated": "2026-06-05 13:20",
+  "focus": "Acceso remoto (pre-PASO 1)",
+  "focusNote": "Ya dentro del MB por Google Remote Desktop. Tailscale instalado + logueado. Siguiente: activar RDP + arrancar PASO 1.",
+  "states": {
+    "f0": "done",
+    "s0": "pend",
+    "s1": "pend",
+    "s2": "pend",
+    "s3": "pend",
+    "s4": "pend",
+    "s5": "pend",
+    "s6": "pend",
+    "s7": "pend",
+    "s8": "pend",
+    "s9": "pend",
+    "s10": "pend",
+    "s11": "pend",
+    "s12": "pend",
+    "s13": "pend",
+    "s14": "prog",
+    "s15": "pend"
+  }
+}
