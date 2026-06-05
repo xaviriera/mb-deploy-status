@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-05 13:35",
+  "updated": "2026-06-05 13:45",
   "focus": "PASO 1 · Instalar herramientas",
-  "focusNote": "Dentro del MB por Google Remote Desktop. Empezando por instalar Claude Code (para que Claude viva en el MB y ejecute el resto). Tailscale ya está.",
+  "focusNote": "Claude Code 2.1.165 instalado en el MB. Arreglando PATH + siguiente: login Max. Luego Claude vive en el MB.",
   "states": {
     "f0": "done",
     "s0": "pend",
