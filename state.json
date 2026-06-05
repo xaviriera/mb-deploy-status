@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-05 13:45",
-  "focus": "PASO 1 · Instalar herramientas",
-  "focusNote": "Claude Code 2.1.165 instalado en el MB. Arreglando PATH + siguiente: login Max. Luego Claude vive en el MB.",
+  "updated": "2026-06-05 14:00",
+  "focus": "Claude vivo en el MB → preparar relevo",
+  "focusNote": "Claude Code 2.1.165 (Opus 4.8, Max) corriendo en el MB y logueado. Siguiente: instalar git + gh, clonar el wiki, y darle el prompt de arranque para que ejecute el resto solo.",
   "states": {
     "f0": "done",
     "s0": "pend",
@@ -12,7 +12,7 @@
     "s5": "pend",
     "s6": "pend",
     "s7": "pend",
-    "s8": "pend",
+    "s8": "prog",
     "s9": "pend",
     "s10": "pend",
     "s11": "pend",
