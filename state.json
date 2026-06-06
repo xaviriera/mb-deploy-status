@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-05 15:00 · EN PAUSA",
-  "focus": "⏸ Sesión en pausa — retomar creando usuario xavir",
-  "focusNote": "RETOMAR POR AQUÍ: (1) crear usuario Windows xavir [tu mano] → entrar una vez. Luego yo: (2) re-login Tailscale (NeedsLogin), (3) reinstalar las 6 herramientas machine-wide, (4) desplegar bundle mb-machine-local en ruta idéntica, (5) clonar repos, (6) tú reintroduces 3 secretos + smoke-test. Destino FIRME: xavir, ruta idéntica.",
+  "updated": "2026-06-06 - retomando",
+  "focus": "Orquestacion autonoma (Claude del MB ejecuta)",
+  "focusNote": "Modo autonomo: el Claude del MB orquesta el despliegue con skip-permissions. Interaccion minima de Xavi: (1) crear cuenta xavir, (2) arrancar Claude con prompt de orquestacion, (3) autorizar Tailscale, (4) secretos + smoke-test. A partir de aqui el panel lo lleva el Claude del MB.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
