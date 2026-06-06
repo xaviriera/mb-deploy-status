@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-06 - repos clonados",
+  "updated": "2026-06-06 - secretos + entorno",
   "focus": "Despliegue por SSH (Claude orquesta desde el portatil)",
-  "focusNote": "CEREBRO + REPOS desplegados en C:/Users/xavir (343 memoria + 36 agentes + 12 proyectos + privado CEDX). Siguiente: arranque Claude apuntando a la ruta + 3 secretos + smoke-test.",
+  "focusNote": "Cerebro + repos + memoria OK. Secretos .env(OPENAI/GROQ) y .mcp.json ya copiados por canal cifrado. Entorno hooks OK (bash/python/claude). FALTA: CEDX_PASSPHRASE (tu mano) + login Max + smoke-test.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -11,7 +11,9 @@
     "Estrategia sin fisuras fijada y reconciliada con el MB",
     "Canal SSH MB abierto (orquesto desde el portatil, sin tocar el MB)",
     "CEREBRO desplegado al MB: 343 memoria + 36 agentes + 12 comandos + CLAUDE.md, verificado",
-    "12 repos + privado(CEDX) clonados a la ruta correcta (nombres-carpeta originales, memoria encaja)"
+    "12 repos + privado(CEDX) clonados a la ruta correcta (nombres-carpeta originales, memoria encaja)",
+    "Secretos .env (OPENAI/GROQ) + .mcp.json copiados al MB por canal cifrado (sin teclear)",
+    "Memoria verificada: cada proyecto encaja con su repo (CdU 87, IM-PULSO 57...)"
   ],
   "states": {
     "f0": "done",
