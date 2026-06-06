@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-06 - sistema verificado",
-  "focus": "Sistema verificado - solo falta gate CEDX (tu passphrase)",
-  "focusNote": "TODO verificado por SSH: agentes (cedx/fiscus/lexia/canon), colas, hooks, memoria, login. Cerebro 100% funcional. Unico pendiente: gate CEDX (sacar HECHOENSERIO + tu CEDX_PASSPHRASE).",
+  "updated": "2026-06-06 - F1 COMPLETO",
+  "focus": "F1 COMPLETO: cerebro vivo, repos al dia. Falta solo gate CEDX",
+  "focusNote": "Cerebro 100% funcional y verificado en el MB. Todos los repos sincronizados al ultimo (incl. corpus CEDX, TRADING_CRIPTO, wiki). Unico pendiente del F1: gate CEDX (tu passphrase). Luego F2 (absorber Linux).",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -18,7 +18,8 @@
     "Wrapper de arranque instalado (cerebro.ps1)",
     "LOGIN reutilizado del de ayer (sin re-login)",
     "SMOKE TEST SUPERADO: cerebro vivo en el MB, lee hot.md + foco + memoria por SSH",
-    "Smoke-test completo verificado: agentes + colas + hooks + memoria todos OK"
+    "Smoke-test completo verificado: agentes + colas + hooks + memoria todos OK",
+    "Todos los repos del MB sincronizados al ultimo (corpus CEDX + TRADING + wiki)"
   ],
   "states": {
     "f0": "done",
