@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-06 - secretos + entorno",
-  "focus": "Despliegue por SSH (Claude orquesta desde el portatil)",
-  "focusNote": "Cerebro + repos + memoria OK. Secretos .env(OPENAI/GROQ) y .mcp.json ya copiados por canal cifrado. Entorno hooks OK (bash/python/claude). FALTA: CEDX_PASSPHRASE (tu mano) + login Max + smoke-test.",
+  "updated": "2026-06-06 - cerebro VALIDADO",
+  "focus": "Cerebro validado en el MB - falta login + smoke-test",
+  "focusNote": "VALIDADO: Claude apuntando a C:/Users/xavir ve agentes+settings+memoria. Wrapper de arranque listo (cerebro.ps1). FALTA SOLO: login Max + CEDX_PASSPHRASE (tu mano) + smoke-test 6 tests.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -13,7 +13,9 @@
     "CEREBRO desplegado al MB: 343 memoria + 36 agentes + 12 comandos + CLAUDE.md, verificado",
     "12 repos + privado(CEDX) clonados a la ruta correcta (nombres-carpeta originales, memoria encaja)",
     "Secretos .env (OPENAI/GROQ) + .mcp.json copiados al MB por canal cifrado (sin teclear)",
-    "Memoria verificada: cada proyecto encaja con su repo (CdU 87, IM-PULSO 57...)"
+    "Memoria verificada: cada proyecto encaja con su repo (CdU 87, IM-PULSO 57...)",
+    "VALIDADO: Claude 2.1.167 ve el cerebro completo (agentes+memoria) apuntando a C:/Users/xavir",
+    "Wrapper de arranque instalado (cerebro.ps1)"
   ],
   "states": {
     "f0": "done",
@@ -21,7 +23,7 @@
     "s1": "prog",
     "s2": "done",
     "s3": "done",
-    "s4": "pend",
+    "s4": "done",
     "s5": "pend",
     "s6": "pend",
     "s7": "pend",
