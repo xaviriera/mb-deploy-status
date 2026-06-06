@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-06 - smoke-test vivo + colas procesadas + rclone parcial",
+  "updated": "2026-06-06 - CEDX gate cerrado + F2 mapa servicios Linux auditado",
   "focus": "F1: cerebro VIVO y operativo por SSH. Pendiente: rclone mount persistente (bloqueado sin pwd usuario) + Scheduled Task alternativa",
   "focusNote": "SMOKE TEST OK: claude -p responde en XAVI_WIKI, .claude.json restaurado de backup, FISCUS/LEXIA/CEDX disponibles. COLAS: fiscus-reflect OK (exit 0), lexia-reflect OK (1 entrada procesada, falso positivo, cola vaciada). RCLONE: servicio NSSM creado pero no arranca - SYSTEM no puede OAuth refresh. Alternativa: Scheduled Task al login usuario (necesita accion manual de Xavi en el MB). Cabo #10 parcialmente cerrado.",
   "done_today": [
@@ -27,7 +27,9 @@
     "2026-06-06: SMOKE TEST EN VIVO confirmado - agente responde, FISCUS+LEXIA+CEDX disponibles",
     "2026-06-06: fiscus-reflect ejecutado OK (background, exit 0)",
     "2026-06-06: lexia-reflect ejecutado OK - 1 entrada procesada (falso positivo despliegue MB), cola vaciada",
-    "2026-06-06: rclone-gdrive NSSM service creado (parcial - no arranca como SYSTEM, falta accion manual)"
+    "2026-06-06: rclone-gdrive NSSM service creado (parcial - no arranca como SYSTEM, falta accion manual)",
+    "2026-06-06: CEDX gate cerrado - HECHOENSERIO eliminado de CLAUDE.md global + XAVI_WIKI/CLAUDE.md + cedx.md local + cedx.md MB; gate apunta a CEDX_PASSPHRASE en .env (no en git)",
+    "2026-06-06: F2 auditado - 7 servicios relevantes mapeados en open-cloud (claude-cedx-telegram, claude-telegram, cedx-corpus-sync, cedx-distill, tradeando x5, lab-visor, skoolflow inactivo)"
   ],
   "states": {
     "f0": "done",
@@ -39,6 +41,8 @@
     "s5": "pend",
     "s6": "done",
     "s7": "done",
+    "cedx_gate": "done",
+    "f2_audit": "done",
     "s8": "done",
     "s9": "done",
     "s10": "prog",
