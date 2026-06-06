@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-06 - AUDITORIA F1",
+  "updated": "2026-06-06 - cabos cerrados via Linux",
   "focus": "F1: cerebro VIVO, pero faltan cabos (auditoria honesta)",
-  "focusNote": "Cerebro+memoria+repos+login OK y verificado. FISURAS abiertas del F1: (1) ANTHROPIC_API_KEY a nivel servicio [tu valor, tope 15-jun], (2) Drives Google rclone sin montar [tu rclone.conf o config], (3) smoke-test FISCUS/LEXIA/CEDX no probado en vivo, (4) servicios always-on/Remote Control daemon, (5) colas FISCUS/LEXIA sin procesar, (6) escritor git unico. F2-F6 sin empezar.",
+  "focusNote": "Acceso SSH a la Linux (openclaw-2) recuperado. CERRADO: ANTHROPIC_API_KEY a nivel maquina (cabo #6). rclone.conf con gdrive traida (cabo #10, falta montaje persistente NSSM). Pendiente: smoke-test FISCUS/LEXIA en vivo, escritor git, colas, gate CEDX, servicios always-on.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -20,7 +20,9 @@
     "SMOKE TEST SUPERADO: cerebro vivo en el MB, lee hot.md + foco + memoria por SSH",
     "Smoke-test completo verificado: agentes + colas + hooks + memoria todos OK",
     "Todos los repos del MB sincronizados al ultimo (corpus CEDX + TRADING + wiki)",
-    "AUDITORIA del runbook: detectadas 6 fisuras abiertas del F1 (API key, Drives, smoke-test, servicios, colas, git)"
+    "AUDITORIA del runbook: detectadas 6 fisuras abiertas del F1 (API key, Drives, smoke-test, servicios, colas, git)",
+    "Acceso a la Linux recuperado (usuario openclaw-2) - traidos API key + rclone.conf",
+    "Cabo #6 cerrado: ANTHROPIC_API_KEY a nivel maquina en el MB"
   ],
   "states": {
     "f0": "done",
@@ -30,7 +32,7 @@
     "s3": "done",
     "s4": "done",
     "s5": "pend",
-    "s6": "prog",
+    "s6": "done",
     "s7": "prog",
     "s8": "done",
     "s9": "done",
