@@ -1,21 +1,23 @@
 {
-  "updated": "2026-06-06 - retomando",
-  "focus": "Orquestacion autonoma (Claude del MB ejecuta)",
-  "focusNote": "Modo autonomo: el Claude del MB orquesta el despliegue con skip-permissions. Interaccion minima de Xavi: (1) crear cuenta xavir, (2) arrancar Claude con prompt de orquestacion, (3) autorizar Tailscale, (4) secretos + smoke-test. A partir de aqui el panel lo lleva el Claude del MB.",
+  "updated": "2026-06-06 - en marcha (SSH)",
+  "focus": "Despliegue por SSH (Claude orquesta desde el portatil)",
+  "focusNote": "Canal SSH al MB abierto. CEREBRO YA DESPLEGADO en C:/Users/xavir (343 memoria + 36 agentes + 12 comandos + CLAUDE.md). Siguiente: clonar repos a la ruta, git/node machine-wide, arranque + 3 secretos + smoke-test.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
     "Plan releído entero: rumbo confirmado → destino xavir, ruta idéntica",
     "Machine-local COMPLETO empaquetado → repo privado mb-machine-local (343 memoria + agentes + hooks + CLAUDE.md, sin secretos)",
     "6 herramientas instaladas (python/uv/node/WinFsp/rclone/NSSM) + 3 repos clonados + 6 fuentes leídas (preparación)",
-    "Estrategia sin fisuras fijada y reconciliada con el MB"
+    "Estrategia sin fisuras fijada y reconciliada con el MB",
+    "Canal SSH MB abierto (orquesto desde el portatil, sin tocar el MB)",
+    "CEREBRO desplegado al MB: 343 memoria + 36 agentes + 12 comandos + CLAUDE.md, verificado"
   ],
   "states": {
     "f0": "done",
     "s0": "pend",
     "s1": "prog",
-    "s2": "pend",
-    "s3": "pend",
+    "s2": "done",
+    "s3": "done",
     "s4": "pend",
     "s5": "pend",
     "s6": "pend",
