@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-06 - cerebro VALIDADO",
-  "focus": "Cerebro validado en el MB - falta login + smoke-test",
-  "focusNote": "VALIDADO: Claude apuntando a C:/Users/xavir ve agentes+settings+memoria. Wrapper de arranque listo (cerebro.ps1). FALTA SOLO: login Max + CEDX_PASSPHRASE (tu mano) + smoke-test 6 tests.",
+  "updated": "2026-06-06 - CEREBRO VIVO",
+  "focus": "CEREBRO VIVO EN EL MB - smoke-test superado",
+  "focusNote": "El cerebro del MB arranca, lee el wiki/hot.md, conoce el foco actual y la memoria. Migracion sin fisuras CUMPLIDA. Solo queda (opcional, capa seguridad): gate CEDX con tu CEDX_PASSPHRASE.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -15,7 +15,9 @@
     "Secretos .env (OPENAI/GROQ) + .mcp.json copiados al MB por canal cifrado (sin teclear)",
     "Memoria verificada: cada proyecto encaja con su repo (CdU 87, IM-PULSO 57...)",
     "VALIDADO: Claude 2.1.167 ve el cerebro completo (agentes+memoria) apuntando a C:/Users/xavir",
-    "Wrapper de arranque instalado (cerebro.ps1)"
+    "Wrapper de arranque instalado (cerebro.ps1)",
+    "LOGIN reutilizado del de ayer (sin re-login)",
+    "SMOKE TEST SUPERADO: cerebro vivo en el MB, lee hot.md + foco + memoria por SSH"
   ],
   "states": {
     "f0": "done",
@@ -26,10 +28,10 @@
     "s4": "done",
     "s5": "pend",
     "s6": "pend",
-    "s7": "pend",
-    "s8": "prog",
-    "s9": "pend",
-    "s10": "pend",
+    "s7": "prog",
+    "s8": "done",
+    "s9": "done",
+    "s10": "done",
     "s11": "pend",
     "s12": "pend",
     "s13": "pend",
