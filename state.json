@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-06 - cabos cerrados via Linux",
-  "focus": "F1: cerebro VIVO, pero faltan cabos (auditoria honesta)",
-  "focusNote": "Acceso SSH a la Linux (openclaw-2) recuperado. CERRADO: ANTHROPIC_API_KEY a nivel maquina (cabo #6). rclone.conf con gdrive traida (cabo #10, falta montaje persistente NSSM). Pendiente: smoke-test FISCUS/LEXIA en vivo, escritor git, colas, gate CEDX, servicios always-on.",
+  "updated": "2026-06-06 - smoke-test vivo + colas procesadas + rclone parcial",
+  "focus": "F1: cerebro VIVO y operativo por SSH. Pendiente: rclone mount persistente (bloqueado sin pwd usuario) + Scheduled Task alternativa",
+  "focusNote": "SMOKE TEST OK: claude -p responde en XAVI_WIKI, .claude.json restaurado de backup, FISCUS/LEXIA/CEDX disponibles. COLAS: fiscus-reflect OK (exit 0), lexia-reflect OK (1 entrada procesada, falso positivo, cola vaciada). RCLONE: servicio NSSM creado pero no arranca - SYSTEM no puede OAuth refresh. Alternativa: Scheduled Task al login usuario (necesita accion manual de Xavi en el MB). Cabo #10 parcialmente cerrado.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -22,18 +22,23 @@
     "Todos los repos del MB sincronizados al ultimo (corpus CEDX + TRADING + wiki)",
     "AUDITORIA del runbook: detectadas 6 fisuras abiertas del F1 (API key, Drives, smoke-test, servicios, colas, git)",
     "Acceso a la Linux recuperado (usuario openclaw-2) - traidos API key + rclone.conf",
-    "Cabo #6 cerrado: ANTHROPIC_API_KEY a nivel maquina en el MB"
+    "Cabo #6 cerrado: ANTHROPIC_API_KEY a nivel maquina en el MB",
+    "2026-06-06: .claude.json restaurado del backup (faltaba en xavir profile)",
+    "2026-06-06: SMOKE TEST EN VIVO confirmado - agente responde, FISCUS+LEXIA+CEDX disponibles",
+    "2026-06-06: fiscus-reflect ejecutado OK (background, exit 0)",
+    "2026-06-06: lexia-reflect ejecutado OK - 1 entrada procesada (falso positivo despliegue MB), cola vaciada",
+    "2026-06-06: rclone-gdrive NSSM service creado (parcial - no arranca como SYSTEM, falta accion manual)"
   ],
   "states": {
     "f0": "done",
-    "s0": "pend",
-    "s1": "prog",
+    "s0": "done",
+    "s1": "done",
     "s2": "done",
     "s3": "done",
     "s4": "done",
     "s5": "pend",
     "s6": "done",
-    "s7": "prog",
+    "s7": "done",
     "s8": "done",
     "s9": "done",
     "s10": "prog",
