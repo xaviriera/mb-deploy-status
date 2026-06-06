@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-06 - CEREBRO VIVO",
-  "focus": "CEREBRO VIVO EN EL MB - smoke-test superado",
-  "focusNote": "El cerebro del MB arranca, lee el wiki/hot.md, conoce el foco actual y la memoria. Migracion sin fisuras CUMPLIDA. Solo queda (opcional, capa seguridad): gate CEDX con tu CEDX_PASSPHRASE.",
+  "updated": "2026-06-06 - sistema verificado",
+  "focus": "Sistema verificado - solo falta gate CEDX (tu passphrase)",
+  "focusNote": "TODO verificado por SSH: agentes (cedx/fiscus/lexia/canon), colas, hooks, memoria, login. Cerebro 100% funcional. Unico pendiente: gate CEDX (sacar HECHOENSERIO + tu CEDX_PASSPHRASE).",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -17,7 +17,8 @@
     "VALIDADO: Claude 2.1.167 ve el cerebro completo (agentes+memoria) apuntando a C:/Users/xavir",
     "Wrapper de arranque instalado (cerebro.ps1)",
     "LOGIN reutilizado del de ayer (sin re-login)",
-    "SMOKE TEST SUPERADO: cerebro vivo en el MB, lee hot.md + foco + memoria por SSH"
+    "SMOKE TEST SUPERADO: cerebro vivo en el MB, lee hot.md + foco + memoria por SSH",
+    "Smoke-test completo verificado: agentes + colas + hooks + memoria todos OK"
   ],
   "states": {
     "f0": "done",
