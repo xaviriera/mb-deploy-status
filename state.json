@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-07 - F2 en marcha",
-  "focus": "F2: always-on migrandose Linux->MB",
-  "focusNote": "F2 EN MARCHA. Migrados+verificados: cedx-corpus-sync (30min), cedx-distill (04:30), lab-visor (:8091) - timers Linux parados. Bots Telegram CEDX+general PREPARADOS (falta arranque+verificacion = 1 accion de Xavi). skoolflow roto (no migra). Trading INTACTO. En paralelo: Remote Control + health-check.",
+  "updated": "2026-06-07 - F4 Remote Control preparado + Health-check activo",
+  "focus": "F4: Remote Control pendiente 2 pasos manuales de Xavi. Health-check corriendo cada hora.",
+  "focusNote": "F2 VERIFICADO OK: cedx-corpus-sync, cedx-distill (Ready), lab-visor (Running :8091). F4 PREPARADO: servicio NSSM instalado, bloqueado por ANTHROPIC_API_KEY a nivel Machine + workspace trust (2 pasos manuales). Health-check activo cada hora en Task Scheduler (log: C:\\Users\\xavir\\health-check.log). Bots Telegram siguen pendientes de Xavi.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -29,17 +29,15 @@
     "2026-06-06: lexia-reflect ejecutado OK - 1 entrada procesada (falso positivo despliegue MB), cola vaciada",
     "2026-06-06: rclone-gdrive NSSM service creado (parcial - no arranca como SYSTEM, falta accion manual)",
     "2026-06-06: CEDX gate cerrado - HECHOENSERIO eliminado de CLAUDE.md global + XAVI_WIKI/CLAUDE.md + cedx.md local + cedx.md MB; gate apunta a CEDX_PASSPHRASE en .env (no en git)",
-    "2026-06-06: F2 auditado - 7 servicios relevantes mapeados en open-cloud (claude-cedx-telegram, claude-telegram, cedx-corpus-sync, cedx-distill, tradeando x5, lab-visor, skoolflow inactivo)",
+    "2026-06-06: F2 auditado - 7 servicios relevantes mapeados en open-cloud",
     "2026-06-07: F2 ejecutado - cedx-corpus-sync Task Scheduler 30min OK + test push verificado",
     "2026-06-07: F2 ejecutado - cedx-distill Task Scheduler 04:30 OK + python 3.12 disponible en MB",
-    "2026-06-07: F2 ejecutado - lab-visor NSSM SERVICE_RUNNING en MB, puerto :8091 LISTENING, uv instaló deps",
-    "2026-06-07: F2 ejecutado - OPENAI_API_KEY en C:\\Users\\Main Brain\\.claude\\.env",
-    "2026-06-07: F2 ejecutado - tokens bot Telegram copiados a channels dirs del MB",
-    "2026-06-07: F2 ejecutado - daemons CEDX+general bash escritos en scripts/, listos para NSSM",
+    "2026-06-07: F2 ejecutado - lab-visor NSSM SERVICE_RUNNING en MB, puerto :8091 LISTENING",
+    "2026-06-07: F2 ejecutado - tokens bot Telegram copiados + daemons bash escritos",
     "2026-06-07: F2 ejecutado - Linux timers cedx-corpus-sync + cedx-distill parados y deshabilitados",
-    "2026-06-07: F2 ejecutado - Linux bots claude-cedx-telegram + claude-telegram SIN TOCAR (siguen running)",
-    "F2: cedx-corpus-sync + cedx-distill + lab-visor migrados al MB y verificados (Linux parado)",
-    "F2: bots Telegram CEDX+general preparados (arranque final pendiente Xavi)"
+    "2026-06-07: F2 VERIFICADO (sesion agente autonomo) - Task Scheduler Ready, lab-visor Running :8091",
+    "2026-06-07: F4 - NSSM service claude-remote-control INSTALADO (Stopped, pendiente 2 pasos Xavi)",
+    "2026-06-07: Health-check - script mb-health-check.ps1 + Task Scheduler cada hora ACTIVO (log: health-check.log)"
   ],
   "states": {
     "f0": "done",
@@ -62,6 +60,8 @@
     "f2_lab_visor": "done",
     "f2_bots_prep": "done",
     "f2_bots_live": "pend",
+    "f4_remote_control": "pend",
+    "f4_health_check": "done",
     "s12": "pend",
     "s13": "pend",
     "s14": "pend",
