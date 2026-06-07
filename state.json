@@ -40,7 +40,8 @@
     "2026-06-07: Health-check - script mb-health-check.ps1 + Task Scheduler cada hora ACTIVO (log: health-check.log)",
     "F2 verificado en vivo + health-check horario activo (log local)",
     "F4 Remote Control instalado (NSSM) - falta workspace-trust + ajuste API key (Xavi)",
-    "Corregido: quitada ANTHROPIC_API_KEY redundante del Machine (crons usan login Max, verificado). Remote Control desbloqueado."
+    "Corregido: quitada ANTHROPIC_API_KEY redundante del Machine (crons usan login Max, verificado). Remote Control desbloqueado.",
+    "R3 confirmado resuelto: 0 IPs viejas, paths de hooks funcionan por ruta identica (s5 marcado done)"
   ],
   "states": {
     "f0": "done",
@@ -49,7 +50,7 @@
     "s2": "done",
     "s3": "done",
     "s4": "done",
-    "s5": "pend",
+    "s5": "done",
     "s6": "done",
     "s7": "done",
     "cedx_gate": "done",
