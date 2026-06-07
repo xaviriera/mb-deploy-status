@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-06 - CEDX gate cerrado + F2 mapa servicios Linux auditado",
-  "focus": "F1: cerebro VIVO y operativo por SSH. Pendiente: rclone mount persistente (bloqueado sin pwd usuario) + Scheduled Task alternativa",
-  "focusNote": "SMOKE TEST OK: claude -p responde en XAVI_WIKI, .claude.json restaurado de backup, FISCUS/LEXIA/CEDX disponibles. COLAS: fiscus-reflect OK (exit 0), lexia-reflect OK (1 entrada procesada, falso positivo, cola vaciada). RCLONE: servicio NSSM creado pero no arranca - SYSTEM no puede OAuth refresh. Alternativa: Scheduled Task al login usuario (necesita accion manual de Xavi en el MB). Cabo #10 parcialmente cerrado.",
+  "updated": "2026-06-07 - F2 ejecutado: corpus-sync + distill + lab-visor migrados. Bots PREPARADOS.",
+  "focus": "F2 casi completo. Pendiente solo: arrancar bots Telegram en MB y verificar antes de parar Linux.",
+  "focusNote": "cedx-corpus-sync: Task Sched 30min OK, test push OK. cedx-distill: Task Sched 04:30 OK, python 3.12 disponible. lab-visor: NSSM SERVICE_RUNNING, :8091 LISTENING. Bots CEDX+general: daemons escritos, tokens copiados, NSSM listo para instalar - necesita verificacion manual antes de parar Linux. skoolflow: 🚫 no migrado (roto assemblyai). Linux timers parados.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -29,7 +29,15 @@
     "2026-06-06: lexia-reflect ejecutado OK - 1 entrada procesada (falso positivo despliegue MB), cola vaciada",
     "2026-06-06: rclone-gdrive NSSM service creado (parcial - no arranca como SYSTEM, falta accion manual)",
     "2026-06-06: CEDX gate cerrado - HECHOENSERIO eliminado de CLAUDE.md global + XAVI_WIKI/CLAUDE.md + cedx.md local + cedx.md MB; gate apunta a CEDX_PASSPHRASE en .env (no en git)",
-    "2026-06-06: F2 auditado - 7 servicios relevantes mapeados en open-cloud (claude-cedx-telegram, claude-telegram, cedx-corpus-sync, cedx-distill, tradeando x5, lab-visor, skoolflow inactivo)"
+    "2026-06-06: F2 auditado - 7 servicios relevantes mapeados en open-cloud (claude-cedx-telegram, claude-telegram, cedx-corpus-sync, cedx-distill, tradeando x5, lab-visor, skoolflow inactivo)",
+    "2026-06-07: F2 ejecutado - cedx-corpus-sync Task Scheduler 30min OK + test push verificado",
+    "2026-06-07: F2 ejecutado - cedx-distill Task Scheduler 04:30 OK + python 3.12 disponible en MB",
+    "2026-06-07: F2 ejecutado - lab-visor NSSM SERVICE_RUNNING en MB, puerto :8091 LISTENING, uv instaló deps",
+    "2026-06-07: F2 ejecutado - OPENAI_API_KEY en C:\\Users\\Main Brain\\.claude\\.env",
+    "2026-06-07: F2 ejecutado - tokens bot Telegram copiados a channels dirs del MB",
+    "2026-06-07: F2 ejecutado - daemons CEDX+general bash escritos en scripts/, listos para NSSM",
+    "2026-06-07: F2 ejecutado - Linux timers cedx-corpus-sync + cedx-distill parados y deshabilitados",
+    "2026-06-07: F2 ejecutado - Linux bots claude-cedx-telegram + claude-telegram SIN TOCAR (siguen running)"
   ],
   "states": {
     "f0": "done",
@@ -46,7 +54,12 @@
     "s8": "done",
     "s9": "done",
     "s10": "prog",
-    "s11": "pend",
+    "s11": "prog",
+    "f2_corpus_sync": "done",
+    "f2_distill": "done",
+    "f2_lab_visor": "done",
+    "f2_bots_prep": "done",
+    "f2_bots_live": "pend",
     "s12": "pend",
     "s13": "pend",
     "s14": "pend",
