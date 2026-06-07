@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-07 - auth corregida",
+  "updated": "2026-06-07 - decision bots",
   "focus": "F4: Remote Control pendiente 2 pasos manuales de Xavi. Health-check corriendo cada hora.",
-  "focusNote": "ANTHROPIC_API_KEY del nivel Machine ELIMINADA (era redundante - los crons usan el login Max OAuth guardado, verificado claude headless OK). Remote Control DESBLOQUEADO (login es Max OAuth) - solo falta workspace-trust (1 entrada RDP de Xavi). API key a nivel servicio = para F6 (Agent SDK). Pendiente Xavi (1 sesion RDP): arrancar bots Telegram + workspace-trust Remote Control + contrasena mount rclone.",
+  "focusNote": "DECISION BOTS (Xavi): (1) CEDX bot -> migra al MB tal cual. (2) bot xavi_wiki/general -> migra al MB. (3) bot openclaw-2 (control Linux) -> SE JUBILA: Remote Control desde app Claude lo reemplaza (control directo MB + Linux via MB). PENDIENTE sesion RDP (Xavi dentro del MB): arrancar CEDX+xavi_wiki bots en MB + parar en Linux + workspace-trust Remote Control + contrasena mount rclone. Contexto MB: auto-compact nativo (no reset manual), detalle canon en wiki/canon/anthropic/_aplicacion-learnings.md.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -41,7 +41,8 @@
     "F2 verificado en vivo + health-check horario activo (log local)",
     "F4 Remote Control instalado (NSSM) - falta workspace-trust + ajuste API key (Xavi)",
     "Corregido: quitada ANTHROPIC_API_KEY redundante del Machine (crons usan login Max, verificado). Remote Control desbloqueado.",
-    "R3 confirmado resuelto: 0 IPs viejas, paths de hooks funcionan por ruta identica (s5 marcado done)"
+    "R3 confirmado resuelto: 0 IPs viejas, paths de hooks funcionan por ruta identica (s5 marcado done)",
+    "Decision bots: CEDX+xavi_wiki al MB; openclaw se jubila (Remote Control lo reemplaza)"
   ],
   "states": {
     "f0": "done",
