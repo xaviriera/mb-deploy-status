@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-07 - decision bots",
+  "updated": "2026-06-07 - bots: fix pendiente (espacio ruta)",
   "focus": "F4: Remote Control pendiente 2 pasos manuales de Xavi. Health-check corriendo cada hora.",
-  "focusNote": "DECISION BOTS (Xavi): (1) CEDX bot -> migra al MB tal cual. (2) bot xavi_wiki/general -> migra al MB. (3) bot openclaw-2 (control Linux) -> SE JUBILA: Remote Control desde app Claude lo reemplaza (control directo MB + Linux via MB). PENDIENTE sesion RDP (Xavi dentro del MB): arrancar CEDX+xavi_wiki bots en MB + parar en Linux + workspace-trust Remote Control + contrasena mount rclone. Contexto MB: auto-compact nativo (no reset manual), detalle canon en wiki/canon/anthropic/_aplicacion-learnings.md.",
+  "focusNote": "REMATE PENDIENTE (sesion fresca): bot claude-cedx-telegram esta SERVICE_PAUSED porque crashea: el daemon bash tiene rutas C:/Users/Main Brain/ (ESPACIO) y bash las parte. Bot general claude-telegram NO instalado aun. FIX (mecanico): mover daemons (claude-cedx-daemon.sh + claude-telegram-daemon.sh) + tokens/channels + binario claude.exe a rutas SIN espacio (C:/Users/xavir/.claude/ + C:/mb/bin/claude.exe), comillar rutas, USERPROFILE=C:/Users/xavir, nssm set + restart, verificar RUNNING y log limpio. Luego instalar bot general igual. Luego rclone mount (contrasena Main Brain). YA OK: cerebro, memoria, repos, login, smoke-test, Remote Control, F2 (corpus-sync+distill+lab-visor), health-check.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -42,7 +42,8 @@
     "F4 Remote Control instalado (NSSM) - falta workspace-trust + ajuste API key (Xavi)",
     "Corregido: quitada ANTHROPIC_API_KEY redundante del Machine (crons usan login Max, verificado). Remote Control desbloqueado.",
     "R3 confirmado resuelto: 0 IPs viejas, paths de hooks funcionan por ruta identica (s5 marcado done)",
-    "Decision bots: CEDX+xavi_wiki al MB; openclaw se jubila (Remote Control lo reemplaza)"
+    "Decision bots: CEDX+xavi_wiki al MB; openclaw se jubila (Remote Control lo reemplaza)",
+    "Bot CEDX diagnosticado: crashea por espacio en C:/Users/Main Brain (bash). Fix mecanico documentado."
   ],
   "states": {
     "f0": "done",
