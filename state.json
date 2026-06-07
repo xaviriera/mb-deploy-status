@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-07 - F2/F4 paralelo",
+  "updated": "2026-06-07 - auth corregida",
   "focus": "F4: Remote Control pendiente 2 pasos manuales de Xavi. Health-check corriendo cada hora.",
-  "focusNote": "Smoke-test PASADO. F2: 3 servicios migrados+verificados (lab-visor :8091 running). Health-check horario ACTIVO. Remote Control instalado pero bloqueado por 2 acciones de Xavi (workspace trust por RDP + quitar ANTHROPIC_API_KEY del nivel Machine que impide el OAuth de Remote Control). Bots Telegram preparados (arranque pendiente Xavi). Trading intacto.",
+  "focusNote": "ANTHROPIC_API_KEY del nivel Machine ELIMINADA (era redundante - los crons usan el login Max OAuth guardado, verificado claude headless OK). Remote Control DESBLOQUEADO (login es Max OAuth) - solo falta workspace-trust (1 entrada RDP de Xavi). API key a nivel servicio = para F6 (Agent SDK). Pendiente Xavi (1 sesion RDP): arrancar bots Telegram + workspace-trust Remote Control + contrasena mount rclone.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -39,7 +39,8 @@
     "2026-06-07: F4 - NSSM service claude-remote-control INSTALADO (Stopped, pendiente 2 pasos Xavi)",
     "2026-06-07: Health-check - script mb-health-check.ps1 + Task Scheduler cada hora ACTIVO (log: health-check.log)",
     "F2 verificado en vivo + health-check horario activo (log local)",
-    "F4 Remote Control instalado (NSSM) - falta workspace-trust + ajuste API key (Xavi)"
+    "F4 Remote Control instalado (NSSM) - falta workspace-trust + ajuste API key (Xavi)",
+    "Corregido: quitada ANTHROPIC_API_KEY redundante del Machine (crons usan login Max, verificado). Remote Control desbloqueado."
   ],
   "states": {
     "f0": "done",
