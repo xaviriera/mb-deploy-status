@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-07 - F4 Remote Control preparado + Health-check activo",
+  "updated": "2026-06-07 - F2/F4 paralelo",
   "focus": "F4: Remote Control pendiente 2 pasos manuales de Xavi. Health-check corriendo cada hora.",
-  "focusNote": "F2 VERIFICADO OK: cedx-corpus-sync, cedx-distill (Ready), lab-visor (Running :8091). F4 PREPARADO: servicio NSSM instalado, bloqueado por ANTHROPIC_API_KEY a nivel Machine + workspace trust (2 pasos manuales). Health-check activo cada hora en Task Scheduler (log: C:\\Users\\xavir\\health-check.log). Bots Telegram siguen pendientes de Xavi.",
+  "focusNote": "Smoke-test PASADO. F2: 3 servicios migrados+verificados (lab-visor :8091 running). Health-check horario ACTIVO. Remote Control instalado pero bloqueado por 2 acciones de Xavi (workspace trust por RDP + quitar ANTHROPIC_API_KEY del nivel Machine que impide el OAuth de Remote Control). Bots Telegram preparados (arranque pendiente Xavi). Trading intacto.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -37,7 +37,9 @@
     "2026-06-07: F2 ejecutado - Linux timers cedx-corpus-sync + cedx-distill parados y deshabilitados",
     "2026-06-07: F2 VERIFICADO (sesion agente autonomo) - Task Scheduler Ready, lab-visor Running :8091",
     "2026-06-07: F4 - NSSM service claude-remote-control INSTALADO (Stopped, pendiente 2 pasos Xavi)",
-    "2026-06-07: Health-check - script mb-health-check.ps1 + Task Scheduler cada hora ACTIVO (log: health-check.log)"
+    "2026-06-07: Health-check - script mb-health-check.ps1 + Task Scheduler cada hora ACTIVO (log: health-check.log)",
+    "F2 verificado en vivo + health-check horario activo (log local)",
+    "F4 Remote Control instalado (NSSM) - falta workspace-trust + ajuste API key (Xavi)"
   ],
   "states": {
     "f0": "done",
@@ -53,7 +55,7 @@
     "f2_audit": "done",
     "s8": "done",
     "s9": "done",
-    "s10": "prog",
+    "s10": "done",
     "s11": "prog",
     "f2_corpus_sync": "done",
     "f2_distill": "done",
