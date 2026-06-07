@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-07 - F2 ejecutado: corpus-sync + distill + lab-visor migrados. Bots PREPARADOS.",
-  "focus": "F2 casi completo. Pendiente solo: arrancar bots Telegram en MB y verificar antes de parar Linux.",
-  "focusNote": "cedx-corpus-sync: Task Sched 30min OK, test push OK. cedx-distill: Task Sched 04:30 OK, python 3.12 disponible. lab-visor: NSSM SERVICE_RUNNING, :8091 LISTENING. Bots CEDX+general: daemons escritos, tokens copiados, NSSM listo para instalar - necesita verificacion manual antes de parar Linux. skoolflow: 🚫 no migrado (roto assemblyai). Linux timers parados.",
+  "updated": "2026-06-07 - F2 en marcha",
+  "focus": "F2: always-on migrandose Linux->MB",
+  "focusNote": "F2 EN MARCHA. Migrados+verificados: cedx-corpus-sync (30min), cedx-distill (04:30), lab-visor (:8091) - timers Linux parados. Bots Telegram CEDX+general PREPARADOS (falta arranque+verificacion = 1 accion de Xavi). skoolflow roto (no migra). Trading INTACTO. En paralelo: Remote Control + health-check.",
   "done_today": [
     "Acceso remoto al MB (Google Remote Desktop)",
     "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
@@ -37,7 +37,9 @@
     "2026-06-07: F2 ejecutado - tokens bot Telegram copiados a channels dirs del MB",
     "2026-06-07: F2 ejecutado - daemons CEDX+general bash escritos en scripts/, listos para NSSM",
     "2026-06-07: F2 ejecutado - Linux timers cedx-corpus-sync + cedx-distill parados y deshabilitados",
-    "2026-06-07: F2 ejecutado - Linux bots claude-cedx-telegram + claude-telegram SIN TOCAR (siguen running)"
+    "2026-06-07: F2 ejecutado - Linux bots claude-cedx-telegram + claude-telegram SIN TOCAR (siguen running)",
+    "F2: cedx-corpus-sync + cedx-distill + lab-visor migrados al MB y verificados (Linux parado)",
+    "F2: bots Telegram CEDX+general preparados (arranque final pendiente Xavi)"
   ],
   "states": {
     "f0": "done",
