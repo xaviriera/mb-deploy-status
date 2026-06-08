@@ -4,170 +4,178 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>🧠 Main Brain · Despliegue</title>
+<title>🧠 Main Brain · Estado</title>
 <style>
-  :root{--bg:#0b0f0d;--panel:#0f1714;--line:#1d2a24;--txt:#d7e4dd;--mut:#7d9389;--acc:#3ddc97;--accd:#1d4a38;--pend:#3a4642;--prog:#e0b33d;--done:#3ddc97;--block:#e0653d;--xavi:#5aa7e0}
+  :root{
+    --bg:#0b0f0d;--panel:#0f1714;--panel2:#121d18;--line:#1d2a24;
+    --txt:#dce8e2;--mut:#88a094;--acc:#3ddc97;--accd:#1d4a38;
+    --done:#3ddc97;--prog:#e0b33d;--pend:#5a6b63;--block:#e0653d;--xavi:#5aa7e0;--cli:#b58be0
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.5;padding:16px 14px 40px;max-width:760px;margin:0 auto;-webkit-font-smoothing:antialiased}
-  header h1{font-size:1.35rem;display:flex;align-items:center;gap:8px}
-  .sub{color:var(--mut);font-size:.82rem;margin-top:4px}
-  .ro{display:inline-block;margin-top:8px;font-size:.7rem;color:var(--acc);background:#0e1f17;border:1px solid var(--accd);border-radius:20px;padding:3px 10px}
+  body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.5;padding:16px 14px 60px;max-width:780px;margin:0 auto;-webkit-font-smoothing:antialiased}
+  header h1{font-size:1.4rem;display:flex;align-items:center;gap:8px}
+  .sub{color:var(--mut);font-size:.8rem;margin-top:4px}
+  .live{display:inline-block;margin-top:8px;font-size:.7rem;color:var(--acc);background:#0e1f17;border:1px solid var(--accd);border-radius:20px;padding:3px 10px}
   .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acc);margin-right:5px;animation:p 1.6s infinite}
   @keyframes p{0%,100%{opacity:.3}50%{opacity:1}}
-  .gbar-wrap{margin:14px 0 6px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-  .gbar-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-  .gbar-top b{font-size:1.15rem;color:var(--acc)}
-  .gbar-top span{color:var(--mut);font-size:.78rem}
-  .gbar{height:12px;background:#16211c;border-radius:6px;overflow:hidden;position:relative}
-  .gbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accd),var(--acc));border-radius:6px;transition:width .6s}
-  .leg{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:.72rem;color:var(--mut)}
-  .today{background:#0d1a12;border:1px solid #1f3b2c;border-radius:10px;padding:12px 14px;margin:12px 0}
-  .today h3{font-size:.82rem;color:var(--done);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
-  .today li{list-style:none;font-size:.85rem;color:#bfe9d6;padding:2px 0 2px 22px;position:relative}
-  .today li:before{content:"✓";position:absolute;left:0;color:var(--done);font-weight:800}
-  .now{background:var(--accd);color:#eafff5;border-radius:10px;padding:10px 14px;margin:12px 0 4px;font-size:.9rem;font-weight:600}
-  .now small{display:block;font-weight:400;color:#bfe9d6;margin-top:2px}
-  h2.fase{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:22px 0 8px;border-bottom:1px solid var(--line);padding-bottom:6px}
-  .step{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;display:flex;gap:11px;align-items:flex-start;transition:border-color .3s,background .3s}
-  .step.done{border-color:#1f3b30;background:#0d1814}
-  .step.prog{border-color:#4a4020;box-shadow:0 0 0 1px #4a402033}
-  .step.block{border-color:#4a2a20}
-  .chkbox{flex:0 0 26px;height:26px;border-radius:7px;border:2px solid #2a3a33;display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:800;color:transparent;margin-top:1px;transition:all .3s}
-  .step.done .chkbox{background:var(--done);border-color:var(--done);color:#06140d}
-  .step.prog .chkbox{border-color:var(--prog);color:var(--prog)}
-  .step.block .chkbox{border-color:var(--block);color:var(--block)}
-  .num{flex:0 0 24px;font-weight:700;font-size:.82rem;color:var(--mut);margin-top:3px;text-align:center}
-  .body{flex:1;min-width:0}
-  .ttl{font-size:.93rem;font-weight:600;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
-  .step.done .ttl{color:#9fc4b4}
-  .chk{color:var(--mut);font-size:.78rem;margin-top:3px}
-  .badge{font-size:.62rem;padding:2px 7px;border-radius:20px;font-weight:700;white-space:nowrap}
-  .b-prog{background:#352d12;color:var(--prog)}
-  .b-cabo{background:#2a1410;color:#e0653d;border:1px solid #4a2a20}
-  .who{font-size:.62rem;padding:1px 6px;border-radius:5px;background:#15201c;color:var(--mut)}
-  .who.x{color:var(--xavi);background:#11202c}
-  .xbox{background:#0d1620;border:1px solid #14334a;border-radius:10px;padding:14px;margin:18px 0}
-  .xbox h3{font-size:.92rem;color:var(--xavi);margin-bottom:9px}
-  .xbox ol{margin-left:18px;font-size:.84rem;color:#cdddea}
-  .xbox li{margin-bottom:5px}
-  footer{color:var(--mut);font-size:.74rem;margin-top:22px;border-top:1px solid var(--line);padding-top:12px}
+
+  .block{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 16px 18px;margin:16px 0}
+  .block > h2{font-size:.95rem;letter-spacing:.02em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .block .q{color:var(--mut);font-weight:400;font-size:.82rem}
+
+  /* Stepper */
+  .stepper{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .ph{flex:1;min-width:58px;text-align:center;padding:8px 4px;border-radius:9px;font-size:.72rem;font-weight:700;border:1px solid var(--line);background:var(--panel2);color:var(--mut);position:relative}
+  .ph small{display:block;font-weight:400;font-size:.62rem;margin-top:2px;color:var(--mut)}
+  .ph.done{border-color:#1f3b30;background:#0d1814;color:#9fc4b4}
+  .ph.prog{border-color:#4a4020;background:#1a1607;color:var(--prog)}
+  .ph.here{border-color:var(--acc);background:#0e2419;color:var(--acc);box-shadow:0 0 0 1px var(--accd)}
+  .ph.todo{opacity:.6}
+
+  .gbar{height:11px;background:#16211c;border-radius:6px;overflow:hidden;margin:6px 0 4px}
+  .gbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accd),var(--acc));border-radius:6px}
+  .gtxt{font-size:.74rem;color:var(--mut)}
+  .now{background:var(--accd);color:#eafff5;border-radius:10px;padding:12px 14px;margin-top:14px;font-size:.92rem;font-weight:600}
+  .now small{display:block;font-weight:400;color:#cdeede;margin-top:4px;line-height:1.5}
+
+  /* Grupos de pendientes */
+  .grp{border:1px solid var(--line);border-radius:11px;margin-bottom:10px;overflow:hidden}
+  .grp-h{padding:10px 13px;font-weight:700;font-size:.88rem;display:flex;align-items:center;gap:8px;background:var(--panel2)}
+  .grp.foco .grp-h{background:#0e2419;color:var(--acc)}
+  .grp-tag{margin-left:auto;font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:20px;background:#0e2419;color:var(--acc);border:1px solid var(--accd)}
+  .it{padding:8px 13px;font-size:.85rem;display:flex;gap:9px;align-items:flex-start;border-top:1px solid var(--line)}
+  .ic{flex:0 0 18px;font-weight:800;text-align:center}
+  .ic.todo{color:var(--pend)} .ic.prog{color:var(--prog)} .ic.done{color:var(--done)} .ic.crit{color:var(--block)}
+  .it .who{font-size:.6rem;padding:1px 6px;border-radius:5px;margin-left:6px;white-space:nowrap;vertical-align:middle}
+  .who.x{color:var(--xavi);background:#11202c} .who.c{color:var(--mut);background:#15201c}
+  .it small{color:var(--mut);display:block;font-size:.74rem;margin-top:1px}
+
+  /* Extras */
+  .ex{border-left:3px solid var(--accd);padding:8px 0 8px 13px;margin-bottom:11px}
+  .ex b{font-size:.87rem} .ex .why{color:var(--mut);font-size:.78rem;display:block;margin-top:2px}
+  .ex .st{font-size:.62rem;padding:1px 7px;border-radius:20px;margin-left:6px;vertical-align:middle}
+  .st.done{background:#0d1814;color:var(--done);border:1px solid #1f3b30}
+  .st.prog{background:#1a1607;color:var(--prog);border:1px solid #4a4020}
+  .st.crit{background:#1f0e0a;color:var(--block);border:1px solid #4a2a20}
+  .intro{color:var(--mut);font-size:.82rem;margin-bottom:12px;line-height:1.55}
+
+  /* Cliente */
+  table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:6px}
+  th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--mut);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+  td.mb{color:#bfe9d6} td.cb{color:#e0d4f5}
+  .promesa{background:#150f1f;border:1px solid #2c1f44;border-radius:10px;padding:12px 14px;margin-top:12px;font-size:.86rem;color:#e0d4f5}
+  .promesa b{color:var(--cli)}
+  footer{color:var(--mut);font-size:.72rem;margin-top:24px;border-top:1px solid var(--line);padding-top:12px;line-height:1.6}
+  a{color:var(--acc)}
 </style>
 </head>
 <body>
 <header>
-  <h1>🧠 Main Brain · Despliegue</h1>
-  <div class="sub">Sitges · MB (Win 10) + Linux always-on · Xavi viaja</div>
-  <div class="ro"><span class="dot"></span>En vivo · lo marca Claude · <span id="upd"></span></div>
+  <h1>🧠 Main Brain — Estado</h1>
+  <div class="sub">Sitges · MB (Windows 11) + Linux always-on · Xavi viaja</div>
+  <div class="live"><span class="dot"></span>act. 2026-06-08 · foco: asegurar el Drive</div>
 </header>
 
-<div class="gbar-wrap">
-  <div class="gbar-top"><b id="pct">0%</b><span id="frac">—</span></div>
-  <div class="gbar"><i id="gbar" style="width:0%"></i></div>
-  <div class="leg">
-    <span style="color:var(--done)">● hecho</span>
-    <span style="color:var(--prog)">● en curso</span>
-    <span style="color:var(--block)">● bloqueado</span>
-    <span style="color:var(--pend)">● pendiente</span>
-    <span style="color:var(--xavi)">🙋 te necesito</span>
+<!-- 1. POR DÓNDE VAMOS -->
+<div class="block">
+  <h2>📍 ¿Por dónde vamos? <span class="q">— la foto de un vistazo</span></h2>
+  <div class="stepper">
+    <div class="ph done">F0<small>blindar ✓</small></div>
+    <div class="ph done">F1<small>MB vivo ✓</small></div>
+    <div class="ph prog">F2<small>Linux→MB</small></div>
+    <div class="ph here">🔐 FASE 0<small>Drive ▸ AQUÍ</small></div>
+    <div class="ph prog">F4<small>remoto</small></div>
+    <div class="ph todo">F3<small>Linux</small></div>
+    <div class="ph todo">F5<small>clientes</small></div>
+    <div class="ph prog">F6<small>pulir</small></div>
+  </div>
+  <div class="gbar"><i style="width:62%"></i></div>
+  <div class="gtxt">El MB ya está <b>vivo y operativo para el código</b>. Falta asegurar el Drive y rematar los pasos manuales.</div>
+  <div class="now">📍 AHORA: <b>Drive seguro (Fase 0)</b>
+    <small>El MB tiene todo el código (verificado, nada perdido). El único bloqueo para "trabajar de verdad desde el MB" es organizar y asegurar el Google Drive, donde vive la media y el trabajo. Plan: el agente entra con una <b>Service Account propia</b> a los 3 Shared Drives de trabajo; tu <b>Mi unidad (personal) queda fuera</b>.</small>
   </div>
 </div>
 
-<div class="today" id="today" style="display:none"><h3>✅ Logrado hoy</h3><ul id="todayList"></ul></div>
+<!-- 2. QUÉ FALTA -->
+<div class="block">
+  <h2>🎯 ¿Qué falta? <span class="q">— en orden, por bloques</span></h2>
 
-<div class="now" id="now"></div>
-<div id="phases"></div>
+  <div class="grp foco">
+    <div class="grp-h">🔐 1 · Drive seguro <span class="grp-tag">FOCO — siguiente</span></div>
+    <div class="it"><span class="ic todo">☐</span><div>Crear <b>Service Account</b> (Google Cloud) + guardar su clave en 1Password<span class="who x">🙋 tú · 2 clics</span></div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Añadir la SA a los <b>3 Shared Drives</b> de trabajo (CdU · Conocimiento · Inmobiliaria)<span class="who x">🙋 tú</span></div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Repuntar rclone + MCP a la SA → el agente lee/escribe el trabajo, <b>NO ve Mi unidad</b><span class="who c">Claude</span></div></div>
+    <div class="it"><span class="ic crit">🔴</span><div>Rotar las <b>credenciales Google expuestas en GitHub</b> (cdu-exito) + limpiar el repo<span class="who x">🙋 tú rota · Claude limpia</span></div></div>
+  </div>
 
-<div class="xbox">
-  <h3>🙋 Los 5 puntos donde te necesito (lista cerrada)</h3>
-  <ol>
-    <li><b>Login OAuth Claude Max</b> (navegador) — paso 8/9</li>
-    <li><b>Pegar secretos</b> (.env, API key, CEDX_PASSPHRASE) — yo no los veo — paso 3/7/8</li>
-    <li><b>NSSM / servicios Windows</b> (admin) — paso 1/6/8</li>
-    <li><b>Execute Workflow en n8n UI</b> (no va por API) — paso 11</li>
-    <li><b>Aprobar capital real / conectar dominio</b> — F3+</li>
-  </ol>
+  <div class="grp">
+    <div class="grp-h">🔑 2 · Seguridad (resto)</div>
+    <div class="it"><span class="ic todo">☐</span><div>Reapuntar el MB al <b>proxy</b> y quitar la clave OpenAI del MB<small>el proxy ya funciona; falta mover los consumidores</small><span class="who c">Claude</span></div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Crear la <b>bóveda 1Password "MainBrain"</b> + meter los secretos<span class="who x">🙋 tú</span></div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Meter el VPS del proxy en Tailscale · WIF (tokens que caducan solos) · anti-ransomware<span class="who c">Claude</span></div></div>
+  </div>
+
+  <div class="grp">
+    <div class="grp-h">🎮 3 · Operativa diaria</div>
+    <div class="it"><span class="ic todo">☐</span><div><b>Remote-control:</b> entrar por RDP una vez + aceptar "workspace trust" → controlas el MB en remoto<span class="who x">🙋 tú</span></div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Arrancar los <b>2 bots de Telegram</b> en el MB → luego apagar los de la Linux<span class="who x">🙋 tú · ya preparados</span></div></div>
+  </div>
+
+  <div class="grp">
+    <div class="grp-h">🐧 4 · Adelgazar la Linux (F3)</div>
+    <div class="it"><span class="ic todo">☐</span><div>Dejar la Linux <b>solo para trading</b>: arreglar SkoolFlow, desacoplar el venv, watchdog<span class="who c">Claude+🙋</span></div></div>
+  </div>
+
+  <div class="grp">
+    <div class="grp-h">👥 5 · Primer cliente (F5)</div>
+    <div class="it"><span class="ic todo">☐</span><div>Montar el primer <b>Client Brain (Lo Romero)</b> con la plantilla → ver bloque de abajo<span class="who c">Claude+🙋</span></div></div>
+  </div>
+</div>
+
+<!-- 3. EXTRAS -->
+<div class="block">
+  <h2>➕ ¿Qué salió como extra? <span class="q">— no estaba en el plan, y por qué</span></h2>
+  <div class="intro">El plan original (F0→F6) era una <b>migración</b>: mover el cerebro del portátil al servidor. Sobre la marcha descubrimos que faltaba algo que el plan no contemplaba: <b>toda una capa de seguridad</b>. Eso es la mayor parte de lo "extra".</div>
+
+  <div class="ex"><b>🛡️ Capa de seguridad entera</b><span class="st prog">en marcha</span>
+    <span class="why">El plan no la tenía. Un cerebro que corre solo 24/7 y maneja tus datos necesita: que el agente no tenga las llaves (proxy), identidad propia revocable (Service Accounts), y que no pueda sacar datos a internet (egress). Es lo que ahora se vende a clientes.</span></div>
+
+  <div class="ex"><b>🔴 Credenciales tuyas expuestas en GitHub</b><span class="st crit">urgente</span>
+    <span class="why">Hallazgo crítico: el client_secret + token de tu Google estaban en texto plano en un repo. Dan acceso a todo tu Drive. Hay que rotarlos (Fase 0).</span></div>
+
+  <div class="ex"><b>💾 Backup 3-2-1 real</b><span class="st done">hecho</span>
+    <span class="why">El plan daba el backup "por hecho" en F0 — y NO existía. Se montó de verdad (cifrado, a Drive, diario, con restauración probada).</span></div>
+
+  <div class="ex"><b>🧩 Harness anti-bloqueo de contexto</b><span class="st done">hecho</span>
+    <span class="why">Un cerebro always-on no puede depender de una "ventana de conversación" que se llena. Se montaron 6 capas para que el estado viva en disco, no en la memoria de la charla.</span></div>
+
+  <div class="ex"><b>🗂️ Auditoría + rediseño del Drive</b><span class="st done">hecho</span>
+    <span class="why">Al ir a montar el Drive vimos que está TODO mezclado (trabajo + personal + media en 4 unidades). Hubo que auditarlo entero y diseñar cómo separarlo con seguridad.</span></div>
+
+  <div class="ex"><b>🔧 Bug "perfil partido" + consolidación</b><span class="st done">hecho</span>
+    <span class="why">El cerebro arrancaba vacío porque el usuario de Windows ("Main Brain") no coincidía con la ruta esperada. Se consolidó todo en el usuario real.</span></div>
+</div>
+
+<!-- 4. CLIENTES -->
+<div class="block">
+  <h2>👥 ¿Qué será esto en un cliente? <span class="q">— el Client Brain (HUMAN-IA)</span></h2>
+  <div class="intro">El Main Brain es el <b>banco de pruebas</b>. Lo que funciona aquí se clona a cada cliente — pero <b>mejor</b>, porque el cliente va en Linux (más seguro) y cada uno en su propia máquina aislada.</div>
+  <table>
+    <tr><th></th><th>Aquí (Main Brain)</th><th>En un cliente (Client Brain)</th></tr>
+    <tr><td>Máquina</td><td class="mb">tu PC Windows (sin sandbox del SO)</td><td class="cb">1 VPS Linux por cliente (sandbox nativo)</td></tr>
+    <tr><td>Datos</td><td class="mb">tuyos (tus Shared Drives)</td><td class="cb">del cliente — <b>el operador no los ve</b></td></tr>
+    <tr><td>Llaves</td><td class="mb">proxy + tu 1Password</td><td class="cb">proxy + bóveda <b>del cliente</b>, en SU VPS</td></tr>
+    <tr><td>Aislamiento</td><td class="mb">un solo dueño (tú)</td><td class="cb">1 cliente = 1 VPS + 1 SA + 1 bóveda → <b>nadie ve a nadie</b></td></tr>
+    <tr><td>Acceso de Claude</td><td class="mb">tú lo manejas</td><td class="cb">temporal, auditado y <b>revocable</b></td></tr>
+  </table>
+  <div class="promesa">🤝 <b>Lo que esto permite prometer al cliente:</b> "Tus datos no salen de tu máquina, el operador no los ve, y todo acceso queda auditado y se puede revocar." Por eso la seguridad se diseña AHORA en el MB, antes de clonar al primer cliente.</div>
 </div>
 
 <footer>
-  <div>Estado en <code>state.json</code> (lo edita Claude en vivo). El % cuenta hecho=1, en curso=½, sobre los 15 pasos del despliegue total.</div>
-  <div style="margin-top:6px">Acceso al MB: Google Remote Desktop (ahora) · Tailscale+RDP (al viajar).</div>
+  Visor único de estado · lo edita Claude. Detrás hay docs de detalle en el wiki:
+  <b>TRAZABILIDAD</b> (cómo se llegó aquí) · <b>PROXIMOS-PASOS</b> / <b>PLAN-EJECUCION-FASE0-DRIVE</b> (qué sigue) · <b>SEGURIDAD-plan-implementacion</b> (toda la seguridad) · <b>DEPLOY-STATE</b> (tablero de pasos).<br>
+  Cerebro real en <code>C:/Users/Main Brain/</code> · acceso: Tailscale + RDP.
 </footer>
-
-<script>
-const STEPS=[
- {f:"F0 · Precondición",items:[
-  {id:"f0",n:"",t:"Backup 3-2-1 (restic) + restore-test",who:"C",chk:"backup verificado + GitHub + colas procesadas",f0:true},
- ]},
- {f:"F1 · Arranque del MB — al cerrar el 10, el cerebro está VIVO",items:[
-  {id:"s0",n:"0",t:"Credenciales / accesos a mano",who:"X",chk:"GitHub · login Max · API key · OPENAI/GROQ · CEDX_PASSPHRASE · Tailscale+Google"},
-  {id:"s1",n:"1",t:"Instalar herramientas",who:"CX",chk:"Claude Code ✅ · Terminal ✅ · Tailscale ✅ · git ✅ · falta: python·uv·node·WinFsp·rclone·NSSM"},
-  {id:"s2",n:"2",t:"Clonar wiki público + privado + ~12 repos",who:"C",chk:"~\\mb\\repos\\xavi-wiki existe · wiki\\_private\\cedx\\ con contenido"},
-  {id:"s3",n:"3",t:"Copiar a mano lo machine-local",who:"CX",chk:".env · cedx.md · CLAUDE.md global · memory/ · .mcp.json",cabo:"#2"},
-  {id:"s4",n:"4",t:"install-agents.sh + install-hooks.sh",who:"C",chk:"agents/ con fiscus·lexia·canon·cedx · settings.json con hooks"},
-  {id:"s5",n:"5",t:"Resolver paths R3 + IP Tailscale",who:"C",chk:"WIKI_PATH real · cero IP 100.91.100.32 · commiteado",cabo:"#3"},
-  {id:"s6",n:"6",t:"Google Drive — rclone + NSSM",who:"CX",chk:"X:/Y:/Z:/W: listan · mounts sobreviven a reinicio",cabo:"#10"},
-  {id:"s7",n:"7",t:"Seguridad CEDX — gate por contraseña",who:"CX",chk:"con pass entra · sin pass rehúsa · cero HECHOENSERIO",cabo:"#5"},
-  {id:"s8",n:"8",t:"Auth — login Max + API key a nivel servicio",who:"X",chk:"login Max ✅ · falta: cron headless ve ANTHROPIC_API_KEY",cabo:"#6"},
-  {id:"s9",n:"9",t:"Pegar el PROMPT DE ARRANQUE",who:"X",chk:"Claude del MB confirma 6 fuentes + propone bloque F1"},
-  {id:"s10",n:"10",t:"Smoke-test — sistema vivo + agentes",who:"C",chk:"6 tests vivos · CEDX + Telegram E2E desde MB sin la Linux"},
- ]},
- {f:"🔐 Fase 0 · Drive seguro + seguridad (FOCO ACTUAL)",items:[
-  {id:"drv1",n:"",t:"Crear Service Account (GCP) + JSON a 1Password",who:"X",chk:"SA cerebro-mb + Drive API habilitada"},
-  {id:"drv2",n:"",t:"Añadir la SA a los 3 Shared Drives (Content-manager)",who:"X",chk:"0AJ… (CdU) · 0ADH… (Conocimiento) · 0AIh… (Inmobiliaria)"},
-  {id:"drv3",n:"",t:"Repuntar rclone + MCP + scripts a la SA",who:"C",chk:"3 letras montadas · agente lee/escribe el trabajo · NO ve Mi unidad (personal)"},
-  {id:"drv4",n:"",t:"Rotar credenciales Google expuestas en cdu-exito",who:"CX",chk:"client_secret + refresh_token rotados · repo limpio",cabo:"SEC"},
-  {id:"sec1",n:"",t:"Reapuntar el MB al proxy + quitar OPENAI_API_KEY",who:"C",chk:"todos los consumidores al proxy ANTES de quitar la clave"},
-  {id:"sec2",n:"",t:"Bóveda 1Password MainBrain + items",who:"X",chk:"PROXY_TOKEN · OPENAI · RESTIC · CEDX · SA JSON"},
- ]},
- {f:"F2–F4 · Absorber Linux y pulir",items:[
-  {id:"s11",n:"11",t:"Mover always-on Linux→MB (+ pipeline IM·PULSO)",who:"CX",chk:"cada servicio en MB · visor IM·PULSO local→Pages sin SSH"},
-  {id:"s12",n:"12",t:"Adelgazar + blindar Linux → solo-trading",who:"CX",chk:"watchdog + recuperación remota · .env exchange NO viajó"},
-  {id:"s13",n:"13",t:"Conexión MB→Linux (monitoriza/ejecuta)",who:"CX",chk:"MB despliega por SSH · Linux ejecuta con guardarraíles"},
-  {id:"s14",n:"14",t:"Portátil como ventana (Tailscale+RDP + panel por Tailscale Serve)",who:"X",chk:"Tailscale+RDP entra desde fuera · panel en móvil · CRD fallback"},
-  {id:"s15",n:"15",t:"Post-arranque (cdu master · colas · health-check · canon)",who:"C",chk:"health-check avisa por Telegram si un agente cae"},
- ]},
-];
-const BADGE={pend:"",prog:"⏳",done:"✓",block:"!"};
-const WHO={C:["who","Claude"],X:["who x","🙋 Xavi"],CX:["who","Claude+🙋"]};
-
-async function load(){
-  let st={};
-  try{const r=await fetch("state.json?t="+Date.now());st=await r.json();}catch(e){}
-  const states=st.states||{};
-  // logrado hoy
-  const tl=document.getElementById("todayList"), tbox=document.getElementById("today");
-  if(st.done_today&&st.done_today.length){tbox.style.display="";tl.innerHTML=st.done_today.map(x=>`<li>${x}</li>`).join("");}
-  else tbox.style.display="none";
-  // pasos
-  const ph=document.getElementById("phases");ph.innerHTML="";
-  let done=0,prog=0,total=0;
-  STEPS.forEach(g=>{
-    const h=document.createElement("h2");h.className="fase";h.textContent=g.f;ph.appendChild(h);
-    g.items.forEach(it=>{
-      const s=states[it.id]||"pend";
-      if(!it.f0){total++;if(s==="done")done++;else if(s==="prog")prog++;}
-      const d=document.createElement("div");d.className="step "+s;
-      const [wc,wt]=WHO[it.who];
-      d.innerHTML=`<div class="chkbox">${BADGE[s]}</div>
-        ${it.n!==""?`<div class="num">${it.n}</div>`:""}
-        <div class="body"><div class="ttl">${it.t}
-          ${s==="prog"?`<span class="badge b-prog">en curso</span>`:""}
-          ${it.cabo?`<span class="badge b-cabo">cabo ${it.cabo} 🔴</span>`:""}
-          <span class="${wc}">${wt}</span></div>
-          <div class="chk">✔ ${it.chk}</div></div>`;
-      ph.appendChild(d);
-    });
-  });
-  const score=done+prog*0.5;
-  const pct=Math.round(score/total*100);
-  document.getElementById("pct").textContent=pct+"%";
-  document.getElementById("frac").textContent=done+" hechos · "+prog+" en curso · de "+total;
-  document.getElementById("gbar").style.width=pct+"%";
-  document.getElementById("upd").textContent=st.updated?("act. "+st.updated):"";
-  document.getElementById("now").innerHTML="📍 Ahora: <b>"+(st.focus||"—")+"</b><small>"+(st.focusNote||"")+"</small>";
-}
-load();
-setInterval(load,20000);
-</script>
 </body>
 </html>
