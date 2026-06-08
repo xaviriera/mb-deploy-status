@@ -74,7 +74,7 @@
 <header>
   <h1>🧠 Main Brain — Estado</h1>
   <div class="sub">Sitges · MB (Windows 11) + Linux always-on · Xavi viaja</div>
-  <div class="live"><span class="dot"></span>act. 2026-06-08 · foco: asegurar el Drive</div>
+  <div class="live"><span class="dot"></span>act. 2026-06-08 · Fase 0 Drive: falta solo el emisor de tokens en el VPS</div>
 </header>
 
 <!-- 1. POR DÓNDE VAMOS -->
@@ -106,6 +106,7 @@
   <div class="it"><span class="ic done">✓</span><div>Cerebro completo: <b>37 agentes</b> (FISCUS, LEXIA, CANON, CEDX + GSD) + hooks + 12 comandos + memoria</div></div>
   <div class="it"><span class="ic done">✓</span><div>Los <b>13 proyectos clonados</b> + lab-visor sirviendo en :8091</div></div>
   <div class="it"><span class="ic done">✓</span><div>Backup cifrado diario funcionando <small>(ojo: hoy solo cubre la config del cerebro, 7.6 MB — ampliarlo a proyectos/wiki es un pendiente)</small></div></div>
+  <div class="it"><span class="ic done">✓</span><div>Limpieza: eliminado el <b>servicio basura rclone-gdrive</b> (apuntaba a una ruta del PC viejo)</div></div>
 </div>
 
 <!-- 2. QUÉ FALTA -->
@@ -114,10 +115,12 @@
 
   <div class="grp foco">
     <div class="grp-h">🔐 1 · Drive seguro <span class="grp-tag">FOCO — siguiente</span></div>
-    <div class="it"><span class="ic todo">☐</span><div>Crear <b>Service Account</b> (Google Cloud) + guardar su clave en 1Password<span class="who x">🙋 tú · 2 clics</span></div></div>
-    <div class="it"><span class="ic todo">☐</span><div>Añadir la SA a los <b>3 Shared Drives</b> de trabajo (CdU · Conocimiento · Inmobiliaria)<span class="who x">🙋 tú</span></div></div>
-    <div class="it"><span class="ic todo">☐</span><div>Repuntar rclone + MCP a la SA → el agente lee/escribe el trabajo, <b>NO ve Mi unidad</b><span class="who c">Claude</span></div></div>
-    <div class="it"><span class="ic crit">🔴</span><div>Rotar las <b>credenciales Google expuestas en GitHub</b> (cdu-exito) + limpiar el repo<span class="who x">🙋 tú rota · Claude limpia</span></div></div>
+    <div class="it"><span class="ic done">✓</span><div>Crear <b>Service Account</b> (Google Cloud) + guardar su JSON en 1Password (NO en el MB)</div></div>
+    <div class="it"><span class="ic done">✓</span><div>Desbloquear la <b>política GCP</b> que impedía crear claves de Service Account (proyecto mainbrain)</div></div>
+    <div class="it"><span class="ic done">✓</span><div>Añadir la SA a las <b>Unidades compartidas</b> de trabajo (como Gestor de contenido)</div></div>
+    <div class="it"><span class="ic done">✓</span><div>Crear <b>1Password Service Account <code>mb-vps</code></b> → token que leerá la bóveda desde el VPS</div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Montar el <b>emisor de tokens en el VPS</b> (lee el JSON de 1Password, emite tokens de 1h) + rclone del MB con token efímero<span class="who c">Claude</span></div></div>
+    <div class="it"><span class="ic crit">🔴</span><div><b>doctrina: el JSON NUNCA en el MB</b> — el MB solo recibe tokens efímeros de 1h, revocables</div></div>
   </div>
 
   <div class="grp">
