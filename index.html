@@ -111,6 +111,14 @@ const STEPS=[
   {id:"s9",n:"9",t:"Pegar el PROMPT DE ARRANQUE",who:"X",chk:"Claude del MB confirma 6 fuentes + propone bloque F1"},
   {id:"s10",n:"10",t:"Smoke-test — sistema vivo + agentes",who:"C",chk:"6 tests vivos · CEDX + Telegram E2E desde MB sin la Linux"},
  ]},
+ {f:"🔐 Fase 0 · Drive seguro + seguridad (FOCO ACTUAL)",items:[
+  {id:"drv1",n:"",t:"Crear Service Account (GCP) + JSON a 1Password",who:"X",chk:"SA cerebro-mb + Drive API habilitada"},
+  {id:"drv2",n:"",t:"Añadir la SA a los 3 Shared Drives (Content-manager)",who:"X",chk:"0AJ… (CdU) · 0ADH… (Conocimiento) · 0AIh… (Inmobiliaria)"},
+  {id:"drv3",n:"",t:"Repuntar rclone + MCP + scripts a la SA",who:"C",chk:"3 letras montadas · agente lee/escribe el trabajo · NO ve Mi unidad (personal)"},
+  {id:"drv4",n:"",t:"Rotar credenciales Google expuestas en cdu-exito",who:"CX",chk:"client_secret + refresh_token rotados · repo limpio",cabo:"SEC"},
+  {id:"sec1",n:"",t:"Reapuntar el MB al proxy + quitar OPENAI_API_KEY",who:"C",chk:"todos los consumidores al proxy ANTES de quitar la clave"},
+  {id:"sec2",n:"",t:"Bóveda 1Password MainBrain + items",who:"X",chk:"PROXY_TOKEN · OPENAI · RESTIC · CEDX · SA JSON"},
+ ]},
  {f:"F2–F4 · Absorber Linux y pulir",items:[
   {id:"s11",n:"11",t:"Mover always-on Linux→MB (+ pipeline IM·PULSO)",who:"CX",chk:"cada servicio en MB · visor IM·PULSO local→Pages sin SSH"},
   {id:"s12",n:"12",t:"Adelgazar + blindar Linux → solo-trading",who:"CX",chk:"watchdog + recuperación remota · .env exchange NO viajó"},
@@ -132,12 +140,12 @@ async function load(){
   else tbox.style.display="none";
   // pasos
   const ph=document.getElementById("phases");ph.innerHTML="";
-  let done=0,prog=0;
+  let done=0,prog=0,total=0;
   STEPS.forEach(g=>{
     const h=document.createElement("h2");h.className="fase";h.textContent=g.f;ph.appendChild(h);
     g.items.forEach(it=>{
       const s=states[it.id]||"pend";
-      if(!it.f0){if(s==="done")done++;else if(s==="prog")prog++;}
+      if(!it.f0){total++;if(s==="done")done++;else if(s==="prog")prog++;}
       const d=document.createElement("div");d.className="step "+s;
       const [wc,wt]=WHO[it.who];
       d.innerHTML=`<div class="chkbox">${BADGE[s]}</div>
@@ -151,9 +159,9 @@ async function load(){
     });
   });
   const score=done+prog*0.5;
-  const pct=Math.round(score/15*100);
+  const pct=Math.round(score/total*100);
   document.getElementById("pct").textContent=pct+"%";
-  document.getElementById("frac").textContent=done+" hechos · "+prog+" en curso · de 15";
+  document.getElementById("frac").textContent=done+" hechos · "+prog+" en curso · de "+total;
   document.getElementById("gbar").style.width=pct+"%";
   document.getElementById("upd").textContent=st.updated?("act. "+st.updated):"";
   document.getElementById("now").innerHTML="📍 Ahora: <b>"+(st.focus||"—")+"</b><small>"+(st.focusNote||"")+"</small>";
