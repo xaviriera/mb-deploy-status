@@ -74,7 +74,7 @@
 <header>
   <h1>🧠 Main Brain — Estado</h1>
   <div class="sub">Sitges · MB (Windows 11) + Linux always-on · Xavi viaja</div>
-  <div class="live"><span class="dot"></span>act. 2026-06-08 · Fase 0 Drive: falta solo el emisor de tokens en el VPS</div>
+  <div class="live"><span class="dot"></span>act. 2026-06-09 · F2 servicios CERRADO: CEDX + discord-vigilance + bot avisos en el MB · Drive 4/4 · foco: blindaje + Codex/delegación</div>
 </header>
 
 <!-- 1. POR DÓNDE VAMOS -->
@@ -83,17 +83,17 @@
   <div class="stepper">
     <div class="ph done">F0<small>blindar ✓</small></div>
     <div class="ph done">F1<small>MB vivo ✓</small></div>
-    <div class="ph prog">F2<small>Linux→MB</small></div>
-    <div class="ph here">🔐 FASE 0<small>Drive ▸ AQUÍ</small></div>
+    <div class="ph done">🔐 Drive<small>4/4 ✓</small></div>
+    <div class="ph done">F2<small>servicios ✓</small></div>
+    <div class="ph here">🛡️ Blindaje<small>+ Codex ▸ AQUÍ</small></div>
     <div class="ph prog">F4<small>remoto</small></div>
-    <div class="ph todo">F3<small>Linux</small></div>
     <div class="ph todo">F5<small>clientes</small></div>
     <div class="ph prog">F6<small>pulir</small></div>
   </div>
-  <div class="gbar"><i style="width:62%"></i></div>
-  <div class="gtxt">El MB ya está <b>vivo y operativo para el código</b>. Falta asegurar el Drive y rematar los pasos manuales.</div>
-  <div class="now">📍 AHORA: <b>Drive seguro (Fase 0)</b>
-    <small>El MB tiene todo el código (verificado, nada perdido). El único bloqueo para "trabajar de verdad desde el MB" es organizar y asegurar el Google Drive, donde vive la media y el trabajo. Plan: el agente entra con una <b>Service Account propia</b> a los 3 Shared Drives de trabajo; tu <b>Mi unidad (personal) queda fuera</b>.</small>
+  <div class="gbar"><i style="width:82%"></i></div>
+  <div class="gtxt">El MB ya está <b>vivo y operativo</b>: Drive 4/4 + servicios clave migrados. Lo que queda es <b>blindaje y limpieza</b>, no funcionalidad core.</div>
+  <div class="now">📍 AHORA: <b>Blindaje de seguridad + delegación a motores baratos</b>
+    <small>F2 cerrado: <b>CEDX</b>, <b>discord-vigilance</b> y el <b>bot de avisos @mb_avisos_bot</b> ya corren en el MB (el bot general y el trading se quedan en la Linux). Siguiente foco: <b>BitLocker / anti-ransomware / desvincular OneDrive</b>, <b>purga de historiales git</b> de claves filtradas, y montar <b>Codex en el MB + una norma de delegación</b> para que Opus orqueste y delegue el trabajo pesado a modelos baratos (Haiku/Sonnet, Codex, gpt-4o-mini).</small>
   </div>
 </div>
 
@@ -114,35 +114,47 @@
   <h2>🎯 ¿Qué falta? <span class="q">— en orden, por bloques</span></h2>
 
   <div class="grp foco">
-    <div class="grp-h">🔐 1 · Drive seguro <span class="grp-tag">FOCO — siguiente</span></div>
+    <div class="grp-h">🔐 1 · Drive seguro <span class="grp-tag">FOCO — casi cerrado</span></div>
     <div class="it"><span class="ic done">✓</span><div>Crear <b>Service Account</b> (Google Cloud) + guardar su JSON en 1Password (NO en el MB)</div></div>
     <div class="it"><span class="ic done">✓</span><div>Desbloquear la <b>política GCP</b> que impedía crear claves de Service Account (proyecto mainbrain)</div></div>
     <div class="it"><span class="ic done">✓</span><div>Añadir la SA a las <b>Unidades compartidas</b> de trabajo (como Gestor de contenido)</div></div>
     <div class="it"><span class="ic done">✓</span><div>Crear <b>1Password Service Account <code>mb-vps</code></b> → token que leerá la bóveda desde el VPS</div></div>
-    <div class="it"><span class="ic todo">☐</span><div>Montar el <b>emisor de tokens en el VPS</b> (lee el JSON de 1Password, emite tokens de 1h) + rclone del MB con token efímero<span class="who c">Claude</span></div></div>
+    <div class="it"><span class="ic done">✓</span><div><b>Emisor de tokens montado en el VPS</b> (<code>gdrive-issuer</code>): lee el JSON de 1Password, emite tokens de 1h. Ruta <code>/gdrive-token</code> en el proxy, verificada (403/200, /openai intacto)</div></div>
+    <div class="it"><span class="ic done">✓</span><div><b>Migración Fase A</b>: ~5,4 GB de pesados de 8 proyectos → unidad <b>MAIN BRAIN (MB)</b> (copia, .git intacto, 8 proyectos verificados)</div></div>
+    <div class="it"><span class="ic done">✓</span><div><b>Crevillente rescatado</b>: 6 vídeos (~1 GB) que estaban expuestos a los socios en el Drive del equipo → movidos al MB (124/124) y la carpeta borrada del Drive del equipo</div></div>
+    <div class="it"><span class="ic done">✓</span><div><b>Saneamiento git</b>: 6 repos con los pesados sacados del tracking (.gitignore + commit + push), sin tocar historiales</div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Montar <b>rclone en el MB (la máquina)</b> con token efímero para operación continua<span class="who c">Claude</span></div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Purgar <b>historiales git inflados</b> (TRADING_CRIPTO .git 7,3 GB) + sacar <code>XAVI_WIKI/raw</code> (~829 MB) + corregir el bug de caducidad del token (sale a ~59 d en vez de 1 h)<span class="who c">Claude</span></div></div>
     <div class="it"><span class="ic crit">🔴</span><div><b>doctrina: el JSON NUNCA en el MB</b> — el MB solo recibe tokens efímeros de 1h, revocables</div></div>
   </div>
 
   <div class="grp">
-    <div class="grp-h">🔑 2 · Seguridad (resto)</div>
-    <div class="it"><span class="ic todo">☐</span><div>Reapuntar el MB al <b>proxy</b> y quitar la clave OpenAI del MB<small>el proxy ya funciona; falta mover los consumidores</small><span class="who c">Claude</span></div></div>
-    <div class="it"><span class="ic todo">☐</span><div>Crear la <b>bóveda 1Password "MainBrain"</b> + meter los secretos<span class="who x">🙋 tú</span></div></div>
-    <div class="it"><span class="ic todo">☐</span><div>Meter el VPS del proxy en Tailscale · WIF (tokens que caducan solos) · anti-ransomware<span class="who c">Claude</span></div></div>
+    <div class="grp-h">🔑 2 · Blindaje (lo que queda)</div>
+    <div class="it"><span class="ic crit">🔴</span><div><b>BitLocker</b> (cifrar disco) + <b>Controlled Folder Access</b> (anti-ransomware) + desvincular <b>OneDrive</b><span class="who c">Claude+🙋</span></div></div>
+    <div class="it"><span class="ic crit">🔴</span><div><b>Purga historial git (BFG)</b> de las claves filtradas + borrar rama rescate-cdu + sacar la <b>fuga Google OAuth</b> del settings.json<span class="who c">Claude</span></div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Borrar <code>C:\Users\xavir</code> (red de seguridad, ya hay backup) + saneamiento git de pesados<span class="who c">Claude</span></div></div>
   </div>
 
   <div class="grp">
     <div class="grp-h">🎮 3 · Operativa diaria</div>
-    <div class="it"><span class="ic prog">◐</span><div><b>Remote-control</b> (instalado pero parado): entrar por RDP una vez + aceptar "workspace trust" → controlas el MB en remoto<span class="who x">🙋 tú</span></div></div>
-    <div class="it"><span class="ic prog">◐</span><div>Bots de Telegram (CEDX en pausa por el espacio en la ruta): arreglar ruta + arrancar → luego apagar los de la Linux<span class="who x">🙋 tú · Claude</span></div></div>
+    <div class="it"><span class="ic done">✓</span><div><b>CEDX bot</b> en el MB (servicio always-on, modo CEDX, plan Max) — migrado y operativo</div></div>
+    <div class="it"><span class="ic done">✓</span><div><b>discord-vigilance</b> en el MB (4 tareas, Playwright headless, sube a Trello) + <b>bot de avisos @mb_avisos_bot</b> (token en 1Password, vía proxy)</div></div>
+    <div class="it"><span class="ic prog">◐</span><div><b>Remote-control</b> (instalado pero parado): entrar por RDP una vez + aceptar "workspace trust"<span class="who x">🙋 tú</span></div></div>
   </div>
 
   <div class="grp">
-    <div class="grp-h">🐧 4 · Adelgazar la Linux (F3)</div>
-    <div class="it"><span class="ic todo">☐</span><div>Dejar la Linux <b>solo para trading</b>: arreglar SkoolFlow, desacoplar el venv, watchdog<span class="who c">Claude+🙋</span></div></div>
+    <div class="grp-h">🐧 4 · Linux = trading + bot general</div>
+    <div class="it"><span class="ic done">✓</span><div><b>Alcance corregido (09-jun):</b> la Linux NO se vacía — el bot general y todo el trading se quedan ahí. "Linux solo-trading" ya no aplica</div></div>
+    <div class="it"><span class="ic todo">☐</span><div>Higiene: parar el <b>lab-visor duplicado</b> de la Linux + escritor único del wiki (parar auto-commit-all)<span class="who c">Claude</span></div></div>
+  </div>
+
+  <div class="grp foco">
+    <div class="grp-h">🤖 5 · Codex + delegación a motores baratos <span class="grp-tag">NUEVO</span></div>
+    <div class="it"><span class="ic todo">☐</span><div>Instalar <b>Codex CLI</b> en el MB + norma: <b>Opus 4.8 orquesta y delega</b> el trabajo pesado a modelos baratos (Claude Haiku/Sonnet, Codex $0, gpt-4o-mini). Extiende la Regla de Oro de tokens a TODO el trabajo del MB<span class="who c">Claude</span></div></div>
   </div>
 
   <div class="grp">
-    <div class="grp-h">👥 5 · Primer cliente (F5)</div>
+    <div class="grp-h">👥 6 · Primer cliente (F5)</div>
     <div class="it"><span class="ic todo">☐</span><div>Montar el primer <b>Client Brain (Lo Romero)</b> con la plantilla → ver bloque de abajo<span class="who c">Claude+🙋</span></div></div>
   </div>
 </div>
