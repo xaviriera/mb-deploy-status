@@ -1,8 +1,19 @@
 {
-  "updated": "2026-06-08 · foco: Drive seguro (Fase 0)",
-  "focus": "Fase 0 — Drive seguro: Service Account + 3 Shared Drives + rotar credenciales expuestas. El MB ya es operativo para el código.",
-  "focusNote": "El MB tiene todo el codigo/wiki (paridad verificada, nada perdido). El bloqueo restante para 'trabajar desde el MB de verdad' es organizar y asegurar el Google Drive (donde vive la media y el trabajo). PLAN: el agente usa una Service Account propia, miembro solo de los 3 Shared Drives de trabajo (CdU 0AJ, Conocimiento 0ADH, Inmobiliaria 0AIh); Mi unidad (personal) queda fuera por construccion. URGENTE: rotar las credenciales Google que estan expuestas en GitHub (cdu-exito: client_secret + refresh_token). Detalle: PLAN-EJECUCION-FASE0-DRIVE. Cerebro REAL en C:/Users/Main Brain/ (NO xavir).",
+  "updated": "2026-06-09 · foco: F2 terminar bots Telegram al MB (bug en el daemon .sh). HECHO HOY: Drive operativo 4/4 + SignWell seguro + 3 fugas cerradas + auto-sync de proyectos",
+  "focus": "Fase 0 Drive: emisor de tokens MONTADO + /gdrive-token en el proxy + migracion Fase A (~5.4 GB, 8 proyectos verificados) + 6 repos saneados (git rm --cached + .gitignore + push) + caso _media-operaciones (Crevillente) rescatado y borrado del Drive del equipo. Siguiente: rclone del MB (maquina) operativo para montar las unidades + resto de saneamiento (purga de historiales) + corregir BUG expiry del emisor.",
+  "focusNote": "EMISOR DE TOKENS Drive MONTADO y funcionando (servicio Swarm gdrive-issuer en el VPS, imagen mb-gdrive-issuer:local, ruta /gdrive-token en el proxy Caddy mb-proxy_proxy dentro del route{} con PROXY_TOKEN; lee el JSON de la SA cerebro-mb@mainbrain-498805 desde 1Password boveda real 'MAIN BRAIN IA' via op+OP_SERVICE_ACCOUNT_TOKEN, emite access token Google ~1h; el JSON NUNCA toca el MB; verificado 403 sin header / 200 con header, /openai sin regresion). Migracion Fase A COMPLETA y VERIFICADA: ~5.4 GB de pesados >=5MB de 8 proyectos copiados a la unidad MAIN BRAIN (MB) 0ANx5vkcxLWghUk9PVA (COPIA no move, .git intacto, 8 proyectos cuadran). Caso _media-operaciones (Crevillente, mal ubicada en la raiz del Shared Drive del equipo, visible a socios): 6 videos ~1GB rescatados al MB, 124/124 verificado, BORRADA del Drive del equipo (confirmado en servidor). Saneamiento git: 6 repos saneados (XAVI_RIERA, IM-PULSO, AMOR_FINANCIERO, IM-PULSO_DOSSIER, operaciones-gestor, CdU_EXITO; git rm --cached + .gitignore + commit + push; working tree intacto, sin tocar historiales). Nombres reales: unidad MAIN BRAIN (MB) (NO 'Cerebro-IA'); Shared Drives PROYECTOS XAVI 0ADH + INVERSION INMOBILIARIA 0AIh + CdU 0AJ (la SA NO es miembro de CdU todavia). PENDIENTE: rclone del MB (maquina) operativo para montar las unidades + purga de historiales inflados (TRADING_CRIPTO .git 7.3GB = venv commiteado, en openclaw-2; otros .git inflados) + sacar XAVI_WIKI/raw (~829MB) + BUG expiry emisor (~59d en vez de ~1h) + persistir Caddyfile + permisos SA a unidades operativas del equipo (cuando Xavi acceda) + saneamiento 5 rutas en subrepo CdU_EXITO/BRIEFINGS + deduplicar landing Crevillente + destilado ChatGPT a concepts. Cerebro REAL en C:/Users/Main Brain/ (NO xavir).",
   "done_today": [
+    "2026-06-09: DRIVE OPERATIVO 4/4 - remotes mb_main/mb_proyectos/mb_inversion/mb_cdu via wrapper mb-rclone.ps1 (token efimero); CdU por root_folder_id 1SQGQQ... (es CARPETA compartida, no team_drive 0AJ que daba 404) + estructura fijada + estandar en el CLAUDE.md del MB. Emisor: expiry correcto ~1h (NO habia bug de 59d)",
+    "2026-06-09: SignWell SEGURO y verificado desde el MB - clave rotada a 1Password + ruta /signwell en el proxy con op (imagen caddy-op:local) + guardian de persistencia (cron 5min restaura si EasyPanel revierte) + MB enchufado (PROXY_TOKEN en .env, nota interna apunta al proxy sin key)",
+    "2026-06-09: 3 FUGAS DE SEGURIDAD cerradas - SignWell rotada; cliente OAuth Google de cdu (proyecto GCP 'MCP Claude Drive', scope Drive total expuesto en rama rescate) BORRADO; app 'Proyecto sin titulo' (acceso TOTAL a Gmail, sin nombre) ELIMINADA",
+    "2026-06-09: Auto-sync de proyectos montado (tarea mb-autosync 15min: add+commit+push por repo, con filtro de secretos + skip >5MB; excluye XAVI_WIKI y TRADING_CRIPTO)",
+    "2026-06-09: F2 arrancado - bots Telegram NO migrados (bug 2 capas: NSSM AppParameters ARREGLADO + daemon .sh con rutas 'Main Brain' rotas internamente PENDIENTE). Bots vivos en el Linux, nada roto. Revision a fondo: solo 2 bots reales + crons cdu-vigilance(Discord)/trading",
+    "2026-06-08: EMISOR DE TOKENS Drive MONTADO y funcionando (servicio Swarm gdrive-issuer en VPS, imagen mb-gdrive-issuer:local; lee JSON SA de 1Password boveda 'MAIN BRAIN IA' via op+OP_SERVICE_ACCOUNT_TOKEN, emite token Google ~1h; el JSON nunca en el MB)",
+    "2026-06-08: Ruta /gdrive-token anadida al proxy Caddy (mb-proxy_proxy) dentro del route{} con PROXY_TOKEN; verificado 403 sin header / 200 con header, /openai sin regresion",
+    "2026-06-08: MIGRACION FASE A COMPLETA y VERIFICADA (~5.4 GB de pesados >=5MB de 8 proyectos -> unidad MAIN BRAIN (MB) 0ANx5vkcxLWghUk9PVA via rclone+token efimero; assets.md por repo; COPIA no move, .git intacto; 8 proyectos cuadran)",
+    "2026-06-08: Caso _media-operaciones (Crevillente) resuelto: 6 videos ~1GB rescatados a MAIN BRAIN (MB)/CdU_EXITO/.../Crevillente_Boquera_Calvari/videos/, 124/124 verificado, carpeta BORRADA del Drive del equipo (confirmado en servidor via API)",
+    "2026-06-08: Saneamiento git de 6 repos (XAVI_RIERA, IM-PULSO, AMOR_FINANCIERO, IM-PULSO_DOSSIER, operaciones-gestor, CdU_EXITO): git rm --cached pesados + .gitignore + commit + push; TGR sin assets; working tree intacto, historiales sin tocar",
+    "2026-06-08: Nombres reales fijados (unidad MAIN BRAIN (MB) NO 'Cerebro-IA'; Shared Drives PROYECTOS XAVI 0ADH + INVERSION INMOBILIARIA 0AIh; CdU 0AJ la SA aun no es miembro) + reparto de maquinas confirmado (MB cerebro+lab / Linux trading / VPS proxy+emisor)",
     "2026-06-08: Trazabilidad COMPLETA del proyecto reconstruida (cronologia + plan F0-F6 vs realidad + extras + que falta) + 3 visores puestos al dia",
     "2026-06-08: Capa de seguridad CONSOLIDADA en plan maestro (proxy + 1Password + WIF + egress + Service Accounts + boundary + sandbox), con orden de fases y distincion MB vs Clientes",
     "2026-06-07: AUDITORIA COMPLETA del Drive (3 niveles) - 4 Shared Drives, cuenta Workspace consultor@, todo MEZCLADO (trabajo+personal+media) -> estrategia de reorganizacion por fases",
@@ -23,9 +34,9 @@
   "states": {
     "f0": "done",
     "s0": "done", "s1": "done", "s2": "done", "s3": "done", "s4": "done", "s5": "done",
-    "s6": "prog", "s7": "done", "s8": "done", "s9": "done", "s10": "prog",
-    "drv1": "pend", "drv2": "pend", "drv3": "pend", "drv4": "pend",
-    "sec1": "pend", "sec2": "pend",
-    "s11": "prog", "s12": "pend", "s13": "pend", "s14": "pend", "s15": "prog"
+    "s6": "done", "s7": "done", "s8": "done", "s9": "done", "s10": "prog",
+    "drv1": "done", "drv2": "done", "drv3": "done", "drv4": "done",
+    "sec1": "done", "sec2": "prog",
+    "s11": "done", "s12": "prog", "s13": "pend", "s14": "pend", "s15": "prog"
   }
 }
