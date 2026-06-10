@@ -1,32 +1,96 @@
 {
-  "updated": "2026-06-05 14:45",
-  "focus": "Replicar entorno IDÉNTICO (usuario xavir)",
-  "focusNote": "Decisión firme: usuario xavir + ruta idéntica = cero adaptación, cero fisuras. Machine-local YA empaquetado en repo privado mb-machine-local (343 memoria + agentes + hooks + CLAUDE.md). El arranque bajo Main Brain se descarta. Falta: crear usuario xavir y desplegar el bundle.",
-  "done_today": [
-    "Acceso remoto al MB (Google Remote Desktop)",
-    "Tailscale + Windows Terminal + git instalados",
-    "Claude Code 2.1.165 (Opus 4.8) + login Max (terreno)",
-    "Plan releído entero: rumbo confirmado",
-    "Machine-local COMPLETO empaquetado: 343 memoria + agentes + comandos + hooks + CLAUDE.md → repo privado",
-    "Estrategia sin fisuras fijada: usuario xavir, ruta idéntica, copia bit a bit"
+  "updated": "2026-06-10 18:35",
+  "machine": "mb",
+  "phase": "F5 — Migración final + cierre de cabos",
+  "headline": "El cerebro está VIVO y operando autónomo. Lo que queda son cabos de CIERRE y blindaje, no de arranque.",
+  "verified": "Auditoría 2026-06-10 verificada contra la máquina por 4 agentes en paralelo (no contra los papeles).",
+  "areas": [
+    {
+      "name": "🧠 Cerebro vivo",
+      "desc": "Arranque · memoria nativa · harness anti-bloqueo · servicios always-on",
+      "done": [
+        "Cerebro desplegado en el usuario real «Main Brain» (agentes, comandos, skills, hooks)",
+        "Memoria nativa re-mapeada y completa: 18 carpetas · 195 transcripts (incidente del 8-jun RESUELTO)",
+        "Harness anti-bloqueo de contexto: 6 hooks activos (PreCompact·PostCompact·SessionStart·SessionEnd·Stop·UserPrompt) + 18 scripts en disco",
+        "Auto-commit + auto-pull del wiki: el MB es el escritor único (push verificado hoy)",
+        "13 tareas programadas en verde (autosync·health-check·restic·cedx×2·discord-vigilance×4·wiki)",
+        "Bot CEDX Telegram corriendo (servicio always-on)",
+        "Bot de ingesta del wiki capturando (test E2E pasó hoy 14:18)",
+        "Visor de laboratorio lab-visor :8091 corriendo"
+      ],
+      "doing": [
+        "wiki-ingest-daemon captura bien pero el proceso se reinicia cada ~5 min (inestable, sin diagnosticar)"
+      ],
+      "todo": [
+        "Confirmar que PreCompact escribe checkpoint en una compactación REAL (solo pasó el test puntual)",
+        "claude-remote-control: PAUSED — requiere 2 pasos tuyos (workspace trust + API key)",
+        "claude-telegram (bot general): parado — decidir si se borra (la decisión vigente es que vive en Linux)"
+      ]
+    },
+    {
+      "name": "🗂️ Google Drive + datos",
+      "desc": "Emisor de tokens · migración de pesados · saneamiento git",
+      "done": [
+        "5 remotes rclone configurados (gdrive personal + 4 unidades de equipo vía Service Account)",
+        "Emisor de tokens funcionando + wrapper mb-rclone.ps1 (el JSON de la SA nunca toca el MB)",
+        "Fase A: ~5,4 GB de pesados migrados a la unidad MAIN BRAIN (8 proyectos)",
+        "Caso Crevillente resuelto: media sacada del Drive del equipo, 124/124 verificado",
+        "Bug del «expiry» del emisor: era FALSO diagnóstico — el código refresca bien el token"
+      ],
+      "doing": [],
+      "todo": [
+        "🔴 G: NO accesible desde el shell: el mount corre pero no propaga letra de unidad (+ error de symlinks). Además monta el Drive PERSONAL de 15 GB en vez de las unidades de trabajo → REHACER",
+        "Saneamiento git: sacar pesados ya migrados (TRADING_CRIPTO .git 7,6 GB · wiki/raw 980 MB · CdU 426 MB) con git rm --cached + purga BFG",
+        "Faltan 3 assets.md en el MB (TGR-MARKETING · CdU_EXITO · CONVERSACIONES-CHATGPT)",
+        "Dar permisos de la Service Account a las unidades del equipo (cuando vayas a acceder)"
+      ]
+    },
+    {
+      "name": "🔐 Seguridad / blindaje",
+      "desc": "Backup · cifrado · anti-ransomware · rotación de fugas",
+      "done": [
+        "Backup 3-2-1 cifrado (restic→Drive): 4 snapshots, restore-test OK, corre diario 03:30",
+        "Windows Defender: protección en tiempo real + antivirus + tamper protection activos",
+        "Firewall: los 3 perfiles activos",
+        "OneDrive de facto desvinculado (no corre, sin cuenta vinculada)",
+        "Proxy de credenciales + emisor Drive funcionando (el MB nunca ve las keys)"
+      ],
+      "doing": [],
+      "todo": [
+        "🔴 Rotar key SignWell (quedó en el historial git) — acción tuya",
+        "🔴 Rotar credenciales Google de cdu-exito (expuestas en GitHub) — acción tuya",
+        "Purgar el historial git de ambas keys con BFG (cuando estén rotadas)",
+        "BitLocker: disco SIN cifrar — decidir (los docs se contradicen: ¿descartado o pendiente?)",
+        "Controlled Folder Access (anti-ransomware): desactivado — activar con allowlist",
+        "Desvincular OneDrive formalmente"
+      ]
+    },
+    {
+      "name": "🧹 Consolidación / limpieza",
+      "desc": "Quitar duplicados y zonas muertas · jubilar el portátil",
+      "done": [
+        "Copia viva del wiki confirmada (brain\\CLAUDE CODE) · MB escritor único",
+        "Portátil: 4 tareas del wiki deshabilitadas + todo el trabajo único rescatado (CdU · skill-vault · BRIEFINGS · ingesta)"
+      ],
+      "doing": [
+        "Actualizar este visor para que refleje la realidad ← lo estás viendo"
+      ],
+      "todo": [
+        "Borrar la copia MUERTA del wiki en mb\\repos\\xavi-wiki (congelada el 5-jun)",
+        "Limpiar la zona muerta mb\\repos\\ (mb-machine-local + visor viejo, estrategia «xavir» descartada)",
+        "Borrar C:\\Users\\xavir (es un cascarón; el backup ya existe)",
+        "TGR-MARKETING: STATE.md viejo (15-may) + memoria nativa vacía → resembrar",
+        "Apagar el portátil: parar visor :8091 + daemon Codex (falta SSH al portátil — acción tuya)",
+        "BRIEFINGS: reconciliar carpeta duplicada + mover 2 vídeos >50 MB a Drive",
+        "Reconciliar docs desactualizados (_PARA-XAVI, bug expiry en el seguimiento, 3 assets.md)"
+      ]
+    }
   ],
-  "states": {
-    "f0": "done",
-    "s0": "pend",
-    "s1": "prog",
-    "s2": "pend",
-    "s3": "pend",
-    "s4": "pend",
-    "s5": "pend",
-    "s6": "pend",
-    "s7": "pend",
-    "s8": "prog",
-    "s9": "pend",
-    "s10": "pend",
-    "s11": "pend",
-    "s12": "pend",
-    "s13": "pend",
-    "s14": "pend",
-    "s15": "pend"
-  }
+  "xavi": [
+    "Rotar key SignWell + credenciales Google de cdu-exito (luego yo purgo el historial git)",
+    "Decidir BitLocker (sí/no) y dar luz verde a activar Controlled Folder Access",
+    "Montar SSH al portátil (OpenSSH + clave pública del MB + IP Tailscale) para poder apagarlo limpio",
+    "Si quieres remote-control nativo: aceptar workspace trust + API key a nivel servicio",
+    "Confirmar el borrado de C:\\Users\\xavir y de la copia muerta del wiki"
+  ]
 }
