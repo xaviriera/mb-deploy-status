@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-10 18:35",
+  "updated": "2026-06-10 18:55",
   "machine": "mb",
   "phase": "F5 — Migración final + cierre de cabos",
   "headline": "El cerebro está VIVO y operando autónomo. Lo que queda son cabos de CIERRE y blindaje, no de arranque.",
@@ -35,11 +35,12 @@
         "Emisor de tokens funcionando + wrapper mb-rclone.ps1 (el JSON de la SA nunca toca el MB)",
         "Fase A: ~5,4 GB de pesados migrados a la unidad MAIN BRAIN (8 proyectos)",
         "Caso Crevillente resuelto: media sacada del Drive del equipo, 124/124 verificado",
-        "Bug del «expiry» del emisor: era FALSO diagnóstico — el código refresca bien el token"
+        "Bug del «expiry» del emisor: era FALSO diagnóstico — el código refresca bien el token",
+        "✅ ACCESO SEGURO AL DRIVE VERIFICADO (10-jun): el MB lista MAIN BRAIN + unidades de trabajo vía wrapper mb-rclone.ps1 con token de 1h del emisor — acorde al plan (el JSON de la Service Account nunca toca el MB)",
+        "✅ G: resuelto: el mount montaba la cuenta personal EQUIVOCADA (papeleradexavi@gmail.com) → retirado del arranque. El Drive personal queda FUERA del agente, como exige el plan. Adiós ventana negra"
       ],
       "doing": [],
       "todo": [
-        "🔴 G: NO accesible desde el shell: el mount corre pero no propaga letra de unidad (+ error de symlinks). Además monta el Drive PERSONAL de 15 GB en vez de las unidades de trabajo → REHACER",
         "Saneamiento git: sacar pesados ya migrados (TRADING_CRIPTO .git 7,6 GB · wiki/raw 980 MB · CdU 426 MB) con git rm --cached + purga BFG",
         "Faltan 3 assets.md en el MB (TGR-MARKETING · CdU_EXITO · CONVERSACIONES-CHATGPT)",
         "Dar permisos de la Service Account a las unidades del equipo (cuando vayas a acceder)"
